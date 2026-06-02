@@ -1,8 +1,9 @@
 package com.denkolochi.model;
 
-import java.time.LocalDateTime;
-import java.util.Objects;
 import com.denkolochi.enumeration.TypeActivitesEnum;
+import java.time.LocalDateTime;
+import java.util.List;
+import java.util.Objects;
 
 public class Quiz extends Activite {
 
@@ -11,6 +12,9 @@ public class Quiz extends Activite {
 	private int tempsLimitGlobal;
 
 	private int scoreMax;
+
+	
+	private List<Question> questions;
 
 	// =========================
 	// Constructeur vide
@@ -49,6 +53,10 @@ public class Quiz extends Activite {
 	// =========================
 	// GETTERS & SETTERS
 	// =========================
+	
+	public void setQuestions(List<Question> questions) {
+	    this.questions = questions;
+	}
 
 	public int getIdQuiz() {
 		return idQuiz;
