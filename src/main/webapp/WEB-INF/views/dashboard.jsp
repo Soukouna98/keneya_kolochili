@@ -124,7 +124,7 @@
 
         <div>
 
-            <h2>Bonjour Parent A 👋</h2>
+            <h2>Bonjour Parent A </h2>
 
             <p>
                 Bienvenue sur votre espace de suivi.

@@ -25,334 +25,267 @@
 
 <body>
 
-<div class="container-fluid">
+	<div class="container-fluid">
 
-    <div class="row">
+		<div class="row">
 
-        <!-- SIDEBAR -->
-        <aside class="col-lg-3 col-xl-2 sidebar p-0">
+			<!-- SIDEBAR -->
+			<aside class="col-lg-3 col-xl-2 sidebar p-0">
 
-            <div class="p-4">
+				<div class="p-4">
 
-                <div class="logo text-center mb-5">
+					<div class="logo text-center mb-5">
 
-                    <a class="navbar-brand custom-brand" href="#">
-                        <img src="${pageContext.request.contextPath}/assets/brand/Group 39.svg"
-                             width="60">
-                    </a>
+						<a class="navbar-brand custom-brand" href="#"> <img
+							src="${pageContext.request.contextPath}/assets/brand/Group 39.svg"
+							width="60">
+						</a> <a class="navbar-brand custom-brand" href="#"> <img
+							src="${pageContext.request.contextPath}/assets/brand/logoName.svg"
+							width="120">
+						</a>
 
-                    <a class="navbar-brand custom-brand" href="#">
-                        <img src="${pageContext.request.contextPath}/assets/brand/logoName.svg"
-                             width="120">
-                    </a>
+					</div>
 
-                </div>
+					<ul class="nav flex-column">
 
-                <ul class="nav flex-column">
+						<li class="nav-item mb-3"><a
+							href="${pageContext.request.contextPath}/dashboard"
+							class="nav-link"> <i class="bi bi-grid"></i> Dashboard
+						</a></li>
 
-                    <li class="nav-item mb-3">
-                        <a href="${pageContext.request.contextPath}/dashboard"
-                           class="nav-link">
-                            <i class="bi bi-grid"></i>
-                            Dashboard
-                        </a>
-                    </li>
+						<li class="nav-item mb-3"><a href="#" class="nav-link active">
+								<i class="bi bi-people"></i> Mes enfants
+						</a></li>
 
-                    <li class="nav-item mb-3">
-                        <a href="#" class="nav-link active">
-                            <i class="bi bi-people"></i>
-                            Mes enfants
-                        </a>
-                    </li>
+						<li class="nav-item mb-3"><a href="#" class="nav-link"> <i
+								class="bi bi-gear"></i> Paramètres
+						</a></li>
 
-                    <li class="nav-item mb-3">
-                        <a href="#" class="nav-link">
-                            <i class="bi bi-gear"></i>
-                            Paramètres
-                        </a>
-                    </li>
+						<li class="nav-item mt-5"><a href="#"
+							class="nav-link text-danger"> <i
+								class="bi bi-box-arrow-right"></i> Déconnexion
+						</a></li>
 
-                    <li class="nav-item mt-5">
-                        <a href="#" class="nav-link text-danger">
-                            <i class="bi bi-box-arrow-right"></i>
-                            Déconnexion
-                        </a>
-                    </li>
+					</ul>
 
-                </ul>
+				</div>
 
-            </div>
+			</aside>
 
-        </aside>
+			<!-- MAIN CONTENT -->
+			<main class="col-lg-9 col-xl-10 p-4">
 
-        <!-- MAIN CONTENT -->
-        <main class="col-lg-9 col-xl-10 p-4">
+				<!-- HEADER -->
+				<div class="d-flex justify-content-between align-items-center mb-4">
 
-            <!-- HEADER -->
-            <div class="d-flex justify-content-between align-items-center mb-4">
+					<div class="flex">
+						<a href="${pageContext.request.contextPath}/liste-enfant"
+							class="btn btn-success"> <i class="bi bi-arrow-left me-2"></i>
+							Retour à la liste des enfants
+						</a>
 
-                <div>
-                    <h2 class="fw-bold mb-1">
-                        Profil de l'enfant
-                    </h2>
+					</div>
 
-                    <p class="text-muted mb-0">
-                        Vue complète du développement
-                    </p>
-                </div>
+					<div class="parent-box">
 
-                <div class="parent-box">
+						<img
+							src="${pageContext.request.contextPath}/assets/images/image10.png"
+							alt="Parent"> <span>Parent A</span>
 
-                    <img
-                        src="${pageContext.request.contextPath}/assets/images/image10.png"
-                        alt="Parent">
+					</div>
 
-                    <span>Parent A</span>
+				</div>
 
-                </div>
+				<!-- ENFANT -->
 
-            </div>
+				<div class="child-header">
 
-             <!-- ENFANT -->
+					<div class="d-flex align-items-center gap-4">
 
-    <div class="child-header">
+						<img
+							src="${pageContext.request.contextPath}/assets/images/image10.png"
+							class="child-avatar">
 
-        <div class="d-flex align-items-center gap-4">
+						<div>
 
-            <img
-            src="${pageContext.request.contextPath}/assets/images/image10.png"
-            class="child-avatar">
+							<h3>Awa Traoré</h3>
 
-            <div>
+							<p class="text-muted mb-1">5 ans • Maternelle</p>
 
-                <h3>Awa Traoré</h3>
+							<span class="badge bg-success"> Suivi actif </span>
 
-                <p class="text-muted mb-1">
-                    5 ans • Maternelle
-                </p>
+						</div>
 
-                <span class="badge bg-success">
-                    Suivi actif
-                </span>
+					</div>
 
-            </div>
+					<button class="btn btn-light">
 
-        </div>
+						<i class="bi bi-three-dots-vertical"></i>
 
-        <button class="btn btn-light">
+					</button>
 
-            <i class="bi bi-three-dots-vertical"></i>
+				</div>
 
-        </button>
+				<!-- MENU INTERNE -->
 
-    </div>
+				<div class="profile-menu">
 
-    <!-- MENU INTERNE -->
+					<a href="#" class="active"> Vue d'ensemble </a> <a href="#">
+						Activités </a> <a href="#"> Croissance </a> <a href="#"> Suivi &
+						progrès </a> <a href="#"> Recommandations </a>
 
-    <div class="profile-menu">
+				</div>
 
-        <a href="#" class="active">
-            Vue d'ensemble
-        </a>
+				<!-- STATISTIQUES -->
 
-        <a href="#">
-            Activités
-        </a>
+				<div class="row g-4 mt-2">
 
-        <a href="#">
-            Croissance
-        </a>
+					<div class="col-lg-3">
 
-        <a href="#">
-            Suivi & progrès
-        </a>
+						<div class="score-card green">
 
-        <a href="#">
-            Recommandations
-        </a>
+							<h6>Cognitif</h6>
 
-    </div>
+							<h2>85%</h2>
 
-    <!-- STATISTIQUES -->
+							<span>Excellent</span>
 
-    <div class="row g-4 mt-2">
+						</div>
 
-        <div class="col-lg-3">
+					</div>
 
-            <div class="score-card green">
+					<div class="col-lg-3">
 
-                <h6>Cognitif</h6>
+						<div class="score-card orange">
 
-                <h2>85%</h2>
+							<h6>Intellectuel</h6>
 
-                <span>Excellent</span>
+							<h2>78%</h2>
 
-            </div>
+							<span>Bon</span>
 
-        </div>
+						</div>
 
-        <div class="col-lg-3">
+					</div>
 
-            <div class="score-card orange">
+					<div class="col-lg-3">
 
-                <h6>Intellectuel</h6>
+						<div class="score-card blue">
 
-                <h2>78%</h2>
+							<h6>Corporel</h6>
 
-                <span>Bon</span>
+							<h2>82%</h2>
 
-            </div>
+							<span>Bon</span>
 
-        </div>
+						</div>
 
-        <div class="col-lg-3">
+					</div>
 
-            <div class="score-card blue">
+					<div class="col-lg-3">
 
-                <h6>Corporel</h6>
+						<div class="score-card red">
 
-                <h2>82%</h2>
+							<h6>Émotionnel</h6>
 
-                <span>Bon</span>
+							<h2>90%</h2>
 
-            </div>
+							<span>Excellent</span>
 
-        </div>
+						</div>
 
-        <div class="col-lg-3">
+					</div>
 
-            <div class="score-card red">
+				</div>
 
-                <h6>Émotionnel</h6>
+				<!-- ACTIVITES -->
 
-                <h2>90%</h2>
+				<div class="card border-0 shadow-sm mt-4">
 
-                <span>Excellent</span>
+					<div class="card-body">
 
-            </div>
+						<div class="d-flex justify-content-between mb-3">
 
-        </div>
+							<h5>Activités récentes</h5>
 
-    </div>
+							<a href="#"> Voir tout </a>
 
-    <!-- ACTIVITES -->
+						</div>
 
-    <div class="card border-0 shadow-sm mt-4">
+						<table class="table">
 
-        <div class="card-body">
+							<thead>
 
-            <div class="d-flex justify-content-between mb-3">
+								<tr>
 
-                <h5>
-                    Activités récentes
-                </h5>
+									<th>Activité</th>
+									<th>Date</th>
+									<th>Score</th>
 
-                <a href="#">
-                    Voir tout
-                </a>
+								</tr>
 
-            </div>
+							</thead>
 
-            <table class="table">
+							<tbody>
 
-                <thead>
+								<tr>
 
-                <tr>
+									<td>Quiz mémoire</td>
+									<td>20 Avril 2026</td>
+									<td><span class="badge bg-success"> 85% </span></td>
 
-                    <th>Activité</th>
-                    <th>Date</th>
-                    <th>Score</th>
+								</tr>
 
-                </tr>
+								<tr>
 
-                </thead>
+									<td>Lecture guidée</td>
+									<td>18 Avril 2026</td>
+									<td><span class="badge bg-primary"> 90% </span></td>
 
-                <tbody>
+								</tr>
 
-                <tr>
+								<tr>
 
-                    <td>Quiz mémoire</td>
-                    <td>20 Avril 2026</td>
-                    <td>
-                        <span class="badge bg-success">
-                            85%
-                        </span>
-                    </td>
+									<td>Logique</td>
+									<td>15 Avril 2026</td>
+									<td><span class="badge bg-warning"> 75% </span></td>
 
-                </tr>
+								</tr>
 
-                <tr>
+							</tbody>
 
-                    <td>Lecture guidée</td>
-                    <td>18 Avril 2026</td>
-                    <td>
-                        <span class="badge bg-primary">
-                            90%
-                        </span>
-                    </td>
+						</table>
 
-                </tr>
+					</div>
 
-                <tr>
+				</div>
 
-                    <td>Logique</td>
-                    <td>15 Avril 2026</td>
-                    <td>
-                        <span class="badge bg-warning">
-                            75%
-                        </span>
-                    </td>
+				<!-- RECOMMANDATIONS -->
 
-                </tr>
+				<div class="card border-0 shadow-sm mt-4">
 
-                </tbody>
+					<div class="card-body">
 
-            </table>
+						<h5 class="mb-4">Recommandations</h5>
 
-        </div>
+						<div class="alert alert-success">Encourager 15 minutes de
+							lecture chaque jour.</div>
 
-    </div>
+						<div class="alert alert-warning">Renforcer les exercices de
+							logique.</div>
 
-    <!-- RECOMMANDATIONS -->
+						<div class="alert alert-info">Maintenir les activités
+							physiques.</div>
 
-    <div class="card border-0 shadow-sm mt-4">
+					</div>
 
-        <div class="card-body">
+				</div>
 
-            <h5 class="mb-4">
+			</main>
 
-                Recommandations
+		</div>
 
-            </h5>
-
-            <div class="alert alert-success">
-
-                Encourager 15 minutes de lecture
-                chaque jour.
-
-            </div>
-
-            <div class="alert alert-warning">
-
-                Renforcer les exercices de logique.
-
-            </div>
-
-            <div class="alert alert-info">
-
-                Maintenir les activités physiques.
-
-            </div>
-
-        </div>
-
-    </div>
-
-        </main>
-
-    </div>
-
-</div>
+	</div>
 
 </body>
 
