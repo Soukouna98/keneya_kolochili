@@ -58,6 +58,10 @@ public class Quiz extends Activite {
 	    this.questions = questions;
 	}
 
+	public List<Question> getQuestions() {
+	    return questions;
+	}
+
 	public int getIdQuiz() {
 		return idQuiz;
 	}

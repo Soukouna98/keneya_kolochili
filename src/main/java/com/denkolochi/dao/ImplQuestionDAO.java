@@ -1,13 +1,14 @@
 package com.denkolochi.dao;
 
+import com.denkolochi.configuration.ConnexionDB;
+import com.denkolochi.model.Option;
+import com.denkolochi.model.Question;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import com.denkolochi.configuration.ConnexionDB;
-import com.denkolochi.model.Question;
 
 public class ImplQuestionDAO implements Repository<Question, Integer> {
 
@@ -110,6 +111,29 @@ public class ImplQuestionDAO implements Repository<Question, Integer> {
 				question.setEnonce(rs.getString("enonce"));
 				question.setId_capacite(rs.getInt("id_capacite"));
 				question.setId_questions(rs.getInt("id_questions"));
+
+				 // 2. récupérer options POUR CHAQUE QUESTION
+			    List<Option> options = new ArrayList<>();
+
+			    PreparedStatement psOpt = con.prepareStatement(
+			        "SELECT * FROM options WHERE id_question = ?"
+			    );
+			    psOpt.setInt(1, question.getId_questions());
+
+			    ResultSet rsOpt = psOpt.executeQuery();
+
+			    while (rsOpt.next()) {
+			        Option opt = new Option();
+			        opt.setId(rsOpt.getInt("id_options"));
+			        opt.setTexte(rsOpt.getString("texte"));
+			        opt.setEstCorrecte(rsOpt.getBoolean("est_correct"));
+			        opt.setId_question(rsOpt.getInt("id_question"));
+
+			        options.add(opt);
+			    }
+
+			    question.setOptions(options);
+				
 				Questions.add(question);
 			}
 
