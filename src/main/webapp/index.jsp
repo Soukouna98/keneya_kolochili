@@ -37,8 +37,7 @@
 		<div class="container">
 			<div class="logo">
 				<a class="navbar-brand custom-brand" href="#"> <img
-					src="${pageContext.request.contextPath}/assets/brand/Group 39.svg"
-					alt="" width="60" height="50">
+					src="${pageContext.request.contextPath}/assets/brand/Group 39.svg" alt="image" width="60" height="50">
 				</a> <a class="navbar-brand custom-brand" href="#"> <img
 					src="${pageContext.request.contextPath}/assets/brand/logoName.svg"
 					alt="" width="90" height="60">
