@@ -238,14 +238,14 @@
                     <div class="child-info">
 
                         <img
-                            src="${pageContext.request.contextPath}/assets/images/image10.png"
+                            src="${pageContext.request.contextPath}/assets/images/girl.png"
                             alt="">
 
                         <div>
 
                             <h5>Awa Traoré</h5>
 
-                            <p>5 ans • Maternelle</p>
+                            <p>9 ans • Primaire</p>
 
                         </div>
 
@@ -285,7 +285,7 @@
                     <div class="child-info">
 
                         <img
-                            src="${pageContext.request.contextPath}/assets/images/image10.png"
+                            src="${pageContext.request.contextPath}/assets/images/boy.png"
                             alt="">
 
                         <div>
