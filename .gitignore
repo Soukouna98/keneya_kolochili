@@ -1,1 +1,30 @@
+<<<<<<< HEAD
 /.vscode
+=======
+# Eclipse
+/.metadata/
+/.settings/
+/.project
+/.classpath
+
+# Build
+/bin/
+/target/
+/build/
+
+# Tomcat / Servers
+/Servers/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+
+
+
+# Db configuration file
+src/main/java/com/denkolochi/configuration/DbConstConfig.java
+>>>>>>> 0a218381dbd77d35bde6ebe09a83409c933784ef

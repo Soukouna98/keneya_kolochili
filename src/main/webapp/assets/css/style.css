@@ -1,0 +1,302 @@
+body {
+	font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	background: white;
+	color: #1E293B;
+}
+
+/* NAVBAR */
+.logo {
+	display: flex;
+	align-items: center;
+	gap: 0;
+	margin: 0;
+	padding: 0;
+}
+
+.custom-brand {
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+.logo-text {
+	font-size: 32px;
+	font-weight: 700;
+	color: #2E9E3E !important;
+}
+
+.nav-link {
+	margin: 0 10px;
+	font-weight: 500;
+	color: #1E293B !important;
+}
+
+.nav-link.active {
+	color: #2E9E3E !important;
+}
+
+/* BUTTONS */
+.btn-main {
+	background: #2E9E3E;
+	color: white;
+	padding: 14px 28px;
+	border-radius: 12px;
+	font-weight: 600;
+}
+
+.btn-main:hover {
+	background: #257D32;
+	color: white;
+}
+
+.btn-outline-custom {
+	border: 2px solid #2E9E3E;
+	color: #2E9E3E;
+	padding: 14px 28px;
+	border-radius: 12px;
+	font-weight: 600;
+}
+
+.btn-login {
+	border: 1px solid #2E9E3E;
+	color: #2E9E3E;
+	border-radius: 12px;
+	padding: 10px 20px;
+}
+
+.btn-register {
+	background: #2E9E3E;
+	color: white;
+	border-radius: 12px;
+	padding: 10px 20px;
+}
+
+/* HERO */
+.hero-section {
+	padding: 20px 0;
+}
+
+.hero-title {
+	font-size: 56px;
+	font-weight: 700;
+	line-height: 70px;
+}
+
+.hero-text {
+	margin-top: 20px;
+	font-size: 18px;
+	line-height: 32px;
+	color: #64748B;
+}
+
+.hero-image {
+	max-width: 100%;
+}
+
+/* STATS */
+.stats-section {
+	background: #EEF7EE;
+}
+
+.stat-card {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 15px;
+	padding: 20px;
+}
+
+.stat-card i {
+	font-size: 48px;
+	color: #2E9E3E;
+}
+
+.stat-text h2 {
+	color: #2E9E3E;
+	font-weight: 700;
+	margin: 0;
+}
+
+.stat-text p {
+	margin: 0;
+	font-size: 16px;
+	color: #1E293B;
+}
+
+/* FEATURES */
+.features-section {
+	background: #FFFFFF;
+}
+
+.section-title {
+	font-size: 30px;
+	font-weight: 400px;
+	color: #1E293B;
+}
+
+/* CARD */
+.feature-card {
+	background: white;
+	border: 1px solid #DDE5DD;
+	border-radius: 20px;
+	padding: 20px 15px;
+	text-align: center;
+	height: 100%;
+	transition: 0.3s;
+}
+
+.feature-cards {
+	padding: 20px 15px;
+	text-align: center;
+	height: 100%;
+	transition: 0.3s;
+}
+
+.img-card {
+	width: 120px;
+	height: 120px;
+	margin: 0 auto 25px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: #FFFFFF;
+	border-radius: 20px;
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.img-card img {
+	width: 90px;
+	height: auto;
+}
+
+.feature-card:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+/* ICON */
+.feature-card i {
+	font-size: 60px;
+	margin-bottom: 25px;
+	display: block;
+}
+
+/* ICON COLORS */
+.bi-brain {
+	color: #74C27A;
+}
+
+.bi-mortarboard {
+	color: #F4B15A;
+}
+
+.bi-heart-fill {
+	color: #F47C7C;
+}
+
+.bi-activity {
+	color: #4D8DFF;
+}
+
+/* INDICATORS */
+.custom-indicators {
+	position: relative;
+	margin-top: 40px;
+}
+
+.custom-indicators button {
+	width: 8px !important;
+	height: 8px !important;
+	border-radius: 50%;
+	background-color: #D1D5DB !important;
+	border: none;
+}
+
+.custom-indicators .active {
+	background-color: #84CC16 !important;
+}
+
+/* EXPLICATION */
+.explication-section {
+	background: #EEF7EE;
+}
+
+.list-expl i {
+	font-size: 20px;
+	color: #2E9E3E;
+}
+
+.testimonial-card {
+	transition: 0.3s;
+	border-radius: 20px;
+}
+
+.testimonial-card:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.recommendation-box {
+	background: #EAF4E8;
+	border-radius: 20px;
+}
+.recommendationv-box {
+	background: #2E9E3E;
+	border-radius: 20px;
+}
+
+.recommendation-icon {
+	width: 80px;
+	height: 80px;
+	background: #B7E4B0;
+	flex-shrink: 0;
+}
+
+.btn-cta {
+	background: orange;
+	color: white;
+	padding: 14px 28px;
+	border-radius: 12px;
+	font-weight: 600;
+}
+
+.btn-cta:hover {
+	background: white;
+	color: black;
+}
+
+.btn-outline-cta {
+	background: white;
+	border: 2px solid #2E9E3E;
+	color: #2E9E3E;
+	padding: 14px 28px;
+	border-radius: 12px;
+	font-weight: 600;
+}
+
+.cta-box {
+	background: #EAF4E8;
+	border-radius: 20px;
+}
+/* FOOTER */
+.footer-section {
+	background: #FFFFFF;
+}
+
+.footer-desc {
+	max-width: 300px;
+	color: #4B5563;
+}
+
+.footer-section ul li {
+	margin-bottom: 12px;
+}
+
+.footer-section a {
+	text-decoration: none;
+	color: #374151;
+	transition: .3s;
+}
+
+.footer-section a:hover {
+	color: #2E9E3E;
+}
