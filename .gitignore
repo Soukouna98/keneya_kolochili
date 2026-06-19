@@ -1,3 +1,35 @@
+<<<<<<< HEAD
+<<<<<<< HEAD
+/.vscode
+=======
+# Eclipse
+/.metadata/
+/.settings/
+/.project
+/.classpath
+
+# Build
+/bin/
+/target/
+/build/
+
+# Tomcat / Servers
+/Servers/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+
+
+
+# Db configuration file
+src/main/java/com/denkolochi/configuration/DbConstConfig.java
+>>>>>>> 0a218381dbd77d35bde6ebe09a83409c933784ef
+=======
 HELP.md
 target/
 .mvn/wrapper/maven-wrapper.jar
@@ -32,3 +64,4 @@ build/
 ### VS Code ###
 .vscode/
 
+>>>>>>> 4c3cd6191c6b6def7e11e41b0e02a3e41a2fd4ca

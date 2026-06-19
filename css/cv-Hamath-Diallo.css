@@ -1,0 +1,232 @@
+.main{
+    display: flex;
+    margin-top: 40px;
+    margin-left: 450px;
+    background-color: #f9f9f9;
+    width: 500px;
+    height: 850px;
+    padding: 10px;
+    border: #000000 1px solid;
+    background: linear-gradient(180deg, #F4F5F6, #D4D6F5);
+}
+.main .cv{
+    position: relative;
+    background-color: #7c5740ff;
+    /* width: 95%;
+    height: 99%; */
+    border-top: #000000 1px solid;
+    border-bottom: #000000 1px solid;
+    border-left: #000000 1px solid;
+    border-radius: 15px 0px 0px 15px;
+    flex: none;
+    width: 50%;
+}
+.main .cv2{
+    background-color: #ffffff;
+    /* width: 95%;
+    height: 99%; */
+    border-top: #000000 1px solid;
+    border-bottom: #000000 1px solid;
+    border-right: #000000 1px solid;
+    border-radius: 0px 15px 15px 0px;
+}
+.rond {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    margin: 20px auto;
+    padding : 7px;
+}
+.images{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+img {
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+    object-fit: cover;
+    position: absolute;
+    top: 62px;
+    left: 13px;
+    z-index: 1;
+    border: 8px solid white;
+    box-sizing: content-box;
+}
+.a{
+    margin-top: 30px;
+    padding-left: 10px;
+    padding-top: 26px;
+}
+.carre{
+    background-color: #F8EDE8;
+    border-radius: 10px 0px 0px 10px;
+    padding: 10px 5px 5PX 23px;
+    position: absolute;
+    top: 47px;
+    left: 93px;
+    width: 377px;
+}
+.nom {
+    font-family: "Playfair Display SC", serif;
+    color: #D39D76;
+    font-size: 20px;
+    font-weight: lighter;
+    margin-left: 44px;
+    text-align: start;
+   
+}
+.titre {
+    color: #7c5740ff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: -5px;
+    margin-left: 46px;
+}
+.carre .presentation{
+    color: #776962;
+    margin-top: 5px;
+    margin-left: 46px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}
+h1{
+    color: #f9f9f9;
+    font-family: montserat, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 10px;
+    /* margin-left: -40px; */
+}
+ul{
+    padding-left: 17px;
+}
+
+ul li{
+    color: #f9f9f9;
+    margin-bottom: 2px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    /* margin-left: -60px; */
+}
+.f {
+    color: #000000;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 255px;
+    padding-left: 14px;
+}
+.liste-f{
+    .liste-ff {
+        list-style: none;
+        color: #94908F;
+    }
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+
+}
+.c{ 
+    margin-bottom: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    margin-left: -19px;
+    list-style: none;
+}
+li i {
+  margin-right: 3px;
+  display: inline-block;
+  padding: 10px;
+  clip-path: circle();
+  /* border-radius: 2px; */
+  background-color: #A36E46;
+  
+}
+span{
+    font-weight: bold;
+}
+.button{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 10px 20px;
+    background-color: #7c5740ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.retour {
+    padding: 10px 20px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #5a3e2bff;
+    a{
+        text-decoration: none;
+        color: white;
+    }
+}
+.ligne{
+    width: 250px;
+    margin-top: -13px;
+    border: none;
+    height: 3px;
+    background-color: #CE9D78;
+    margin-left: 47px;
+}
+.lignee{
+    width: 80px;
+    margin-top: -13px;
+    margin-left: 15px;
+    border: none;
+    height: 3px;
+    background-color: #CE9D78;
+}
+.gras{
+    font-weight: bold;
+    color: #594E46;
+}
+h1{
+    font-family: "Montserrat", sans-serif;
+}
+*{font-family:"Open Sans", sans-serif;}
+.gras-nom{
+    font-weight: bold;
+    font-family: "Playfair Display SC", serif;
+}
+
+li{
+    text-transform: lowercase;
+}
+li::first-letter{
+    text-transform: uppercase;
+}
+.maj{
+    text-transform: uppercase;
+    font-weight: normal;
+}
+@media screen and (max-width: 550px) {
+     div#main.main{
+        margin-left: 0px;
+        margin-top: 60px;
+     }
+    
+     .button{
+        margin-top: 5px;
+        right: -131px;
+    }
+    .retour{
+        margin-top: 15px;
+    }
+    body {
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+}

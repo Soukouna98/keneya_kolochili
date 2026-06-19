@@ -1,0 +1,242 @@
+:root {
+    --couleurblanche: rgb(255, 255, 255);
+    --couleurprimaire: #353232;
+    --couleurprincipale: #7c5740ff;
+    --couleurliennoir: #000;
+    /* scroll-behavior: smooth; */
+
+}
+
+@keyframes fondu {
+    from {
+        opacity: 0;
+    }
+
+    40% {
+        opacity: 0.8;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fonduheader {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+header {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    width: 80vw;
+    border-radius: 50px;
+    background-color: var(--couleurblanche);
+    padding-left: 10px;
+
+    top: 0;
+    z-index: 100;
+    left: 10%;
+    box-shadow: 0px 1px 2px var(--couleurliennoir);
+    animation: fondu 1s ease-in-out .5s 1;
+
+    div.identite {
+        display: flex;
+        justify-content: baseline;
+        align-items: center;
+        gap: 5px;
+    }
+
+    nav {
+        ul {
+            display: flex;
+            list-style-type: none;
+            gap: 10px;
+
+            li {
+                margin-right: 2vw;
+                transition: .5s linear;
+
+                &:hover {
+                    transform: scale(1.2);
+                }
+
+                a {
+                    text-decoration: none;
+                    color: var(--couleurliennoir);
+                    transition: all .5s;
+
+                    &:hover {
+                        text-transform: uppercase;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+main {
+    section.presentation {
+        display: flex;
+        /* background: linear-gradient(to top,orange,red); */
+        margin-top: 35px;
+        border-radius: 30px;
+        height: 60vh;
+        animation: fondu 1.5s ease-in 1s 1;
+        /* text-indent: 30px; */
+        text-align: center;
+        padding-top: 10px;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            width: 50%;
+            margin-top: 34px;
+        }
+
+        background-color: rgba(255, 255, 255, 0.34);
+
+
+    }
+}
+
+.equipe {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+img {
+    transition: .5s linear;
+    width: 30vw;
+}
+
+img:hover {
+    transform: scale(1.1);
+}
+
+figure>img {
+    width: 25vw;
+    border-radius: 3vh;
+
+}
+
+figcaption {
+    margin-top: 5px;
+    transition: .5s linear;
+    text-align: center;
+}
+
+footer {
+    padding-top: 10px;
+    height: 20vh;
+    background-color: var(--couleurprincipale);
+    text-align: center;
+    border-radius: 20px 20px 0px 0px;
+    color: var(--couleurblanche);
+}
+
+.modification {
+    width: 25vw;
+    height: 30vh;
+    object-fit: cover;
+
+}
+
+img[alt=logo] {
+    width: 40px;
+    /* height: 40px; */
+}
+
+h1,
+h2 {
+    font-family: "Montserrat", sans-serif;
+    text-align: center;
+}
+
+* {
+    font-family: "Open Sans", sans-serif;
+}
+
+.cadrepresentation {
+    text-align: justify;
+}
+@media screen and (max-width:500px) {
+    footer {
+        height: 13vh;
+    }
+    figcaption {
+        font-size: 14px;
+    }
+    .modification {
+    width: 25vw;
+    height: 11vh;
+    object-fit: cover;
+
+    }
+    #desktop{
+        display: none;
+    }
+    header#tel{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        border-radius: 0px;
+        margin: 0%;
+        padding: 0%;
+        position: fixed;
+        top: 0%;
+        left: 0%;
+        #nav-tel{
+            width: 10vw;
+        }
+    }
+    .iconenavigation{
+        width: 35px;
+        vertical-align: baseline;
+    }
+    #menuouvert{
+        display: block;
+     
+    }
+    .menunavigationliste{
+        ul{
+        list-style-type: none;
+        text-align: center;
+        padding: 0%;
+        line-height: 2;
+        li a{
+        text-decoration: none;
+        color: aliceblue;
+        }
+}
+        
+        
+    }
+    
+}
+#tel{
+    display: none;
+}
+.menunavigationliste{
+    height: 100vh;
+    width: 40%;
+    background-color: rgba(124, 87, 64, 0.674);
+    display: none;
+    position: fixed;
+    right: 0%;
+    top: 0%;
+    padding-top: 10%;
+    z-index: 50;
+       /* transition: all .5s linear; */
+}

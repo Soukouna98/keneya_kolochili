@@ -1,0 +1,150 @@
+<!DOCTYPE html><!-- Indique au navigateur que le document utilise HTML5 -->
+<html lang="en"><!-- Début du document HTML et langue principale (anglais) -->
+<head>
+    <!-- Encodage des caractères pour supporter tous les caractères (accents, etc.) -->
+    <meta charset="UTF-8"> 
+    <!-- Permet l’adaptation du site sur les écrans mobiles -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Titre de la page affiché dans l’onglet du navigateur -->
+    <title>Porfolio de Mohamed</title>
+    <!-- Lien vers la feuille de style CSS locale -->
+
+    <link rel="stylesheet" href="css/style1.css">
+     <!-- Importation de la bibliothèque d’icônes Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+     <!-- Importation de la police Google Fonts (Inter) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Lien vers le fichier JavaScript local -->  
+    <script src="js/Javascript.js"></script>
+    
+</head>
+<body>
+
+    <!-- Section contenant la photo de profil -->
+    <div class="PHOTO">
+        <img src="images/MD.png" alt="ME">
+    </div>
+
+    <!-- Barre d’en-tête contenant le nom et le statut -->
+
+    <div class="bare">
+        <h1>Mohamed Coulibaly</h1>
+        <p class="Statut">DÉVELOPPEUR WEB</p>
+    </div>
+
+
+    <!-- Conteneur principal qui regroupe la colonne gauche et droite -->
+    <div class="Box">
+
+        <!-- Colonne gauche : compétences et informations -->
+        <div class="competence">
+
+
+            <!-- Section Éducation -->
+            <div class="education">
+
+            <h2 >ÉDUCATION</h2>
+            <h3>2021-2024</h3>
+            <P>Licence en GEA (Major)</P>
+            <h3>2021-2023</h3>
+            <P>DUT</P>
+
+            </div>
+
+            <!-- Section Compétences -->
+            <div class="compétences">
+            <h2>COMPÉTENCES</h2>
+            <ul>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JS</li>
+                <li>Trello</li>
+                <li>Figma</li>
+                <li>Git</li>
+            </ul>
+
+            </div>
+
+            <!-- Section Qualités personnelles -->
+            <div class="qualités">
+
+             <h2>QUALITÉS</h2>
+            <ul>
+                <li>Créative</li>
+                <li>Autonome</li>
+                <li>Capacité d'analyse</li>
+                <li>sens d'anticipation</li>
+            </ul>
+
+            </div>
+
+            <!-- Section Contact -->
+            <div class="contact">
+
+            <h2>CONTACT</h2>
+            <P class="p-contact">+223 72 25 50 79</P>
+            <P class="p-contact">mohamedcoulibaly7225@gmail.com</P>
+            <P class="p-contact">Bamako</P>
+
+
+             <!-- Icônes pour la localisation, téléphone et email -->
+            <i class="fa-solid fa-location-dot" style="color: #50392b;"></i>
+            <i class="fa-solid fa-phone" style="color: #50392b;"></i>
+            <i class="fa-solid fa-envelope" style="color: #50392b;"></i>
+            </div>
+
+        
+        <!-- Colonne droite : expérience professionnelle -->
+        </div>
+        <div class="experience">
+
+            <!-- Ligne verticale décorative -->
+           <div id="vertical-line1"></div> 
+           <div id="circle1"><img src="images/Icon-profil.png" alt="profil-icon"></div> 
+
+            <!-- Section Profil -->
+            <h2 class="T1">PROFIL</h2>
+            <P class="P1">Stagiaire aux Aéroports du Mali, expert en gestion de flux et codage Html/Css/JS. Créateur de Basket House, site e-commerce innovant pour fans de sport.</P>
+           <!-- Icône pour la section expérience -->
+           <div id="circle2"><img src="images/Icon-sac.png" alt="sac-icon"></div> 
+           <!-- Section Expérience professionnelle -->
+            <h2 class="T2">EXPÉRIENCE PROFESSIONNELLE</h2>
+             <div id="tip1"></div> 
+              <div id="vertical-line2"></div> 
+              <!-- Expérience 1 -->
+            <div class="info">
+               
+                <h3 class="T3">Stage 1</h3>
+                <P class="P2">Analyse des flux passagers aux Aéroports du Mali et création d'un script javascript pour automatiser le reporting des files d'attente.</P>
+            </div>
+
+                <div id="tip2"></div> 
+                <div id="vertical-line3"></div>
+                <!-- Expérience 2 -->
+            <div class="info">
+                <h3 class="T4">Stage 2</h3>
+                <P class="P3">Optimisation de la base de données fret et codage d'un interface  de suivi en html /css pour améliorer la gestion logistique du terminal.</P>
+            </div>
+
+                    <div id="tip3"></div> 
+                    <div id="vertical-line4"></div>
+                    <!-- Projet personnel -->
+            <div class="info">
+                <h3 class="T5">Projet</h3>
+                <P class="P4">Optimisation de la base de données fret et codage d'un interface de suivi en html /css pour améliorer la gestion logistique du terminal.</P>
+            </div>
+    </div>
+    <!-- Bouton pour télécharger le CV -->
+
+    <a href="CV/Mohamed - cv.pdf" download><button id="Bouton" onclick="callAlert('Le fichier est téléchargé avec succès !')">Télécharger le CV</button></a>
+      <!-- Bouton retour -->
+    <button id="Bouton-R">Retourne</button>
+    <!-- Fond blanc décoratif -->
+    <div class="BC"></div>
+</body>
+</html>
+
+
+
+
+

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scaled=1.0">
+<title> CV - Aïssata MOULEKAFOU</title>
+<link rel="stylesheet" href="css/css-moulekafou.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+    <Body>
+        <div class="cv">
+   <!-- HEADER -->
+        <header>
+             <div class="header">
+                <div class="photo">
+        <img src="images/aissataREEL.jpeg" class="photo" alt="Photo de Aïssata">
+                </div>
+
+        <div class="header-text">
+            <h1>Aïssata MOULEKAFOU</h1>
+            <h2>Polyvalente</h2>
+            <div class="ligne"></div>
+            <p>Motivée et engagée, je mets mes compétences au service de l’équipe.</p>
+        </div>
+    </div>
+            </header>
+
+
+   
+    <div class="content">
+        <div class="left">
+            <h3 class="h3">COORDONNEES</h3>
+            <ul class="menue">
+                <li><i class="fa-solid fa-phone"></i>+223 77 96 86 92</li>
+                <li><i class="fa-regular fa-envelope"></i>aissatamoulekafou11@gmail.com</li>
+                <li><i class="fa-solid fa-location-dot"></i>Quinzambougou, Bamako, Mali</li>
+          </ul>
+                <p><h3>COMPETENCES</h3></p>
+            <ul class="menu">
+                <li><span class="gras">Technique:</span>   MATLAB/Simulink, Canva, Figma </li>
+               <li><span class="gras">Gestion de projet:</span>  Trello, Notion AI, Travail en équipe </li>
+           </ul>
+               <h3>QUALITES</h3>
+                <ul>
+                    <li>Dynamique</li>
+                    <li>Sens de l’écoute</li>
+                    <li>Aisance relationnelle</li>
+                    <li>Adaptabilité et sens de l’innovation</li>
+                </ul>
+            <p><h3>LANGUES</h3></p>
+               <ul class="menu">
+                <li><span class="gras">Français: </span> Niveau professionnel </li>
+              <li><span class="gras">Anglais: </span> Niveau Scolaire </li>
+            </ul>
+              <h3>Centres d'intérêts</h3>  
+                <p class="menu">Bricolage et lecture</p>
+         </div>
+
+
+        <div class="right">
+            <h3>Expériences <div>professionnelles</div></h3>
+            <div class="lignemarron"></div>
+             <h4>Rebobineuse</h4>
+           <div class="date">
+               
+             <span>AREPEL - Stage </span>       <span class="ecart">Janvier - Octobre 2025</span>
+            </div>
+                <ul>
+                    <li>Rébobinage de moteurs électriques et d’alternateurs</li>
+                    <li>Réalisation de schémas de bobinage</li>
+                    <li>Réduction de 15% des coûts de maintenance grâce à l’optimisation des machines</li>
+                </ul>
+
+
+
+
+            <h4>Automaticienne</h4>
+             <div class="date"><span>KOUMALIM S.A- Stage </span>              <span class="ecart">Septembre - Octobre 2024</span></div>
+                <ul>
+                    <li>Remplacement et évaluation des capteurs et actionnaires</li>
+                    <li>Rédaction de rapports techniques et de suivi des machines</li>
+                </ul>
+
+
+            <p><h3>Formations</h3></p>
+             <div class="lignemarron"></div>
+            <div><span class="gras">2022 - 2025: </span>Licence en électromécanique</div>
+            <div><span class="gras">2019 - 2022:</span> Baccalauréat Sciences expérimentales </div>
+        </div>
+    </div>
+ </div>
+ <div class="btn">
+      <button class="button" id="telecharger">Telecharger</button>
+      <a href="index.html"><button>Retour à l'accueil</button></a>
+</div>
+ <script>
+    document.addEventListener("DOMContentLoaded", function() {
+    const bouton = document.querySelector('button');
+
+    bouton.addEventListener("click", function() {
+      const lien=document.createElement('a');
+
+        lien.href="CV/CV-Moulekafou Aïssata.pdf";
+        lien.download="CV De Aïssata MOULEKAFOU";
+        lien.click();
+        alert("Le cv est telechargé !");
+
+    });
+  });
+ </script>
+</body>
+
+
+

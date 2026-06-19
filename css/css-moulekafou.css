@@ -1,0 +1,157 @@
+/*background general*/
+body {
+    font-size: 14px;
+    font-family: 'Open Sans', sans-serif;
+    color: black;
+}
+
+/*taille et type de police*/
+h1, h3 {
+    font-family: 'montserrat','Open Sans'; font-weight: 595px;
+   
+}
+.cv {
+    margin: 40px auto;
+    background: white;
+    position: relative;
+    width: 730px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+
+
+/* CONTENU */
+.content {
+    display: flex;
+}
+
+.left{
+    width: 340px;
+    padding: 0px 0px 0px 15px;
+    margin-bottom: 5px;
+    background:rgba(124,87,64,0.28);
+    border-radius: 12px;
+    padding-top: 260px;
+
+}
+.right {
+    padding:  10px;
+    padding-top: 300px;
+    margin-bottom: 5px;
+    background-color: #F2F0EF;
+    left: 90px;
+}
+
+.header {
+
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    margin-left: 25.5%;
+    background: #7C5740;
+    color: white;
+    height: 150px;
+    width: 450px;
+    padding: 45px;
+    margin-top: 40px; 
+    align-items: center;
+ 
+}
+
+.header-text h1{
+    color: white;
+    text-align: left;
+    width: 350px;
+}
+
+
+.header-text{
+text-align: left;
+position: relative;
+right: 120px;
+}
+
+.photo {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover; 
+    position: relative;
+    right: 65px;
+}
+
+/* TITRES */
+h2 {
+   font-weight: 400;
+   font-size: 14px;
+}  
+h3 {
+color: #564032;
+font-size: 20px;
+font-weight: 700;
+margin-bottom: -5px;
+margin-top: 30px;
+}
+h4 {
+font-weight: 700
+}
+.date {
+    color: #A36E46;  
+    font-weight: 600;
+    margin-top: -10px;
+    display: flex;
+    justify-content: space-between;
+}
+.gras {
+font-weight: 700
+}
+
+/* .ecart{
+    margin-left:90px;
+
+} */
+.ligne{
+    width: 68.01px;
+    border: 1px solid white;
+}
+.lignemarron{
+    width: 95px;
+    border: 1px solid #A36E46;
+    margin-top: 20px;
+     margin-bottom: 10px;
+}
+
+li i{ 
+    color: #7C5740;
+    display: flex;
+    margin-right: 7px;
+    padding: 3px;
+}
+.menue{
+    list-style: none;
+    position: absolute;
+    left: 70px;
+    top: 315px;
+    margin-left: -95px;
+}
+.h3{
+    
+    top: 310px ;
+    margin-bottom: 80px;
+}
+.btn{
+    display: flex;
+    justify-content: center;
+}
+button {
+  /* background-color: #7c5740ff; */
+  color: rgb(0, 0, 0);
+  border-radius: 10px;
+  padding: 10px 20px;
+  margin: 10px;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #7c5740ff;
+  color: white;
+}

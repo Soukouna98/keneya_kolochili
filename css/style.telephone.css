@@ -1,0 +1,19 @@
+.cadrepresentation {
+    p {
+        font-size: 12px;
+    }
+}
+    
+section {
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+ }
+ footer {
+    height: 15vh;
+        p{
+            font-size: 12px;
+        }
+    address p {
+        font-size: 12px;
+    }
+ }

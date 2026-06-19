@@ -1,0 +1,102 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+body {
+  background-color: #d1c9c4;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.container {
+  display: flex;
+  max-width: 900px;
+  width: 100%;
+  background-color: antiquewhite;
+  gap: 40px;
+}
+header.entête {
+ /* position: absolute;
+
+  display: flex;
+  background: #50392B;
+  padding: 20px;
+  text-align: center;*/
+  background:#7c5740ff;
+  max-width: 900px;
+  width: 100%;
+  text-align: end;
+    color: white;
+    padding: 55px;  
+}
+.entête h1{
+  margin-right: 20px;
+  font-size: 60px;
+}
+.entête h2{
+  margin-right: 20px;
+  font-size: 50px;
+}
+.entête p{
+  margin-right: 20px;
+  font-size: 30px;
+  color: #FFFFFF;
+}
+
+.gauche {
+  width: 40%;
+  margin-top: -296px;
+  background: #50392B;
+  padding: 40px;
+  margin-left: 10px;
+  padding-left: 30px;
+  border-radius: 200px 200px 0px 0px;
+}
+.photo{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+  /* margin-top: -25px; */
+
+  img {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  margin: 0 auto;
+ border: 6px solid #fff;
+ object-fit: cover;
+}
+}
+ul li{
+  margin-left: 30px;
+}
+.contact i{
+  padding: 5px;
+}
+.contact p{
+  margin-top: -5px;
+}
+.email{
+  margin-top: 10px;
+}
+.photo
+
+.droite {
+  width:60%  ;
+
+}
+button {
+  /* background-color: #7c5740ff; */
+  color: rgb(0, 0, 0);
+  border-radius: 10px;
+  padding: 10px 20px;
+  margin: 10px;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #7c5740ff;
+  color: white;
+}

@@ -1,0 +1,276 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Arial, sans-serif;
+
+}
+
+body {
+  background: #eee;
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+}
+
+.le_tout {
+  width: 750px;
+  background: white;
+  margin-top: 80px;
+}
+.top-header {
+  background: #7a5237;
+  color: white;
+  padding: 40px 20px 60px 60px;
+}
+.header-content {
+  direction: rtl;
+  position: relative;
+  right: 70px;
+  top: 30px;
+}
+.prenom {
+  font-size: 28px;
+  font-weight: 300;
+  /* position: relative;
+  right: 30px; */
+}
+.nom {
+  display: block;
+  font-size: 42px;
+  font-weight: 800;
+  /* position: relative;
+  right: 30px; */
+}
+.taf-titre {
+  font-size: 18px;
+  margin-top: 5px;
+  position: relative;
+  top: 15px;
+}
+
+.body {
+  display: flex;
+}
+.left {
+  width: 38%;
+  background: #e6e6e6;
+  padding-bottom: 20px;
+}
+.cadre_photo {
+  height: 300px;
+  background: #e6e6e6;
+  border-radius: 180px 180px 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -197px;
+}
+.cadre_photo img {
+  width: 230px;
+  height: 230px;
+  border-radius: 50%;
+  object-fit: cover;
+  will-change:transform;
+  animation:fondu 1.5s ease-in 1 .5s forwards alternate;
+  transition : all .4s linear;
+  &:hover{
+  transform:scale(1.1);
+  }
+}
+.left section {
+  padding: 0 20px;
+}
+.left h3 {
+  text-transform: uppercase;
+  color: #7a5237;
+  font-size: 15px;
+  margin: 25px 0 10px;
+  position: relative;
+}/* .left h3::after {
+  content: "";
+  width: 40px;
+  height: 2px;
+  background: #7a5237;
+  display: block;
+  margin-top: 6px;
+} */
+.left p {
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+.small {
+  font-size: 13px;
+  color: #333;
+}
+.list {
+  padding-left: 18px;
+}
+.list li {
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+.right {
+  width: 62%;
+  padding: 30px;
+}
+.right h3 {
+  text-transform: uppercase;
+  color: #7a5237;
+  font-size: 17px;
+  margin-bottom: 15px;
+  position: relative;
+}
+/* .right h3::after {
+  content: "";
+  width: 60px;
+  height: 2px;
+  background: #7a5237;
+  display: block;
+  margin-top: 6px;
+} */
+.section-title {
+  display: flex;
+  justify-content: space-between;
+
+  span {
+    width: 180px;
+    height: 3px;
+    background: #7a5237;
+    margin-top: 10px;
+  }
+  hr {
+    width: 140px;
+    height: 4px;
+    background: #7a5237;
+    margin-top: 32px;
+  }
+}
+
+.space {
+  width: 4%;
+  background-color: #fff;
+}
+
+.timeline {
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 3px;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background: #7a5237;
+  padding-bottom: 20px;
+}
+
+#notline {
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 20px;
+}
+
+.les_points {
+  width: 14px;
+  height: 14px;
+  background: white;
+  border: 2px solid #7a5237;
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+  top: 4px;
+}
+.name{
+margin-right:-19px;
+animation:fondu 1.5s ease-in 1 .5s forwards alternate;
+}
+.timeline p {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+i {
+  color: #7a5237;
+  margin-right: 8px;
+}
+.content::before {
+  content: "";
+  width: 14px;
+  height: 14px;
+  background: white;
+  border: 2px solid #7a5237;
+  border-radius: 50%;
+  position: absolute;
+  left: -2px;
+}
+
+
+.actions {
+  position: fixed;
+  width: 100%;
+  top: 20px;
+  display: flex;
+  justify-content: space-between;
+  z-index: 1000;
+  align-items: center;
+  padding: 0 3rem;
+}
+.button {
+  background: transparent;
+  color: #7a5237;
+  border: 2px solid #7a5237;
+  padding: 10px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.retour {
+  background: transparent;
+  border: 2px solid #7a5237;
+  padding: 8px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.retour a {
+  text-decoration: none;
+  color: #7a5237;
+  font-weight: 600;
+}
+
+.retour:hover, .button:hover  {
+  background: #7a5237;
+}
+
+.retour:hover a, .retour:hover a i, .button:hover span, .button:hover i {
+  color: #fff;
+}
+@keyframes deroulement{
+from{
+width:0;
+}
+to{
+width:100%;
+}
+}
+.progression{
+width:0px;
+height:9px;
+position:fixed;top:0%;left:0%;
+background-color:pink;
+animation:deroulement linear;
+animation-timeline:scroll();
+}
+@keyframes fondu{
+from{
+opacity:0;
+}
+to{
+opacity:1
+}
+}

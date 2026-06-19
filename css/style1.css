@@ -1,0 +1,497 @@
+
+/* Reset CSS : supprime les marges et padding par défaut des navigateurs */
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+/* Style général du body */
+
+body{
+    border: 15px double black;
+    width: 375mm;
+    height: 500mm;
+    /* padding: 20px; */
+    font-family: 'Inter', sans-serif;
+    background-color: gray;
+    margin-left: 100px;
+}
+
+
+/* Barre d'en-tête contenant le nom */
+.bare{
+    background-color:#50392B;
+    width: 1387px;
+    height: 322PX;
+}
+
+
+/* Conteneur de la photo de profil */
+.PHOTO{
+    background-color: #D9D9D9;
+    width: 294px;
+    height: 303px;
+    position: absolute;
+    top: 188px;
+    left: 170px;
+    border-radius: 49px;
+}
+
+
+/* Image de la photo */
+
+.PHOTO > img{
+    margin-top: 55px;
+    margin-left: 30px;
+    width: 250px;
+    border-radius: 100%;
+}
+
+
+/* Nom principal */
+
+h1{
+    color: white;
+    font-size: 70px;
+    font-weight: bolder;
+    position: relative;
+    left: 500px;
+    top: 110px;
+    width: 800px;
+    
+}
+
+/* Statut professionnel */
+
+.Statut{
+    color: white;
+    font-size: 38px;
+    position: relative;
+    font-weight: 300;
+    left: 500px;
+    top: 120px;
+    width: 800px;
+    font-style: italic;
+    letter-spacing: -2px;
+}
+
+
+/* Conteneur principal avec deux colonnes */
+
+.Box{
+    display: flex;
+}
+
+
+/* Colonne des compétences */
+
+
+.competence{
+    width: 338px;
+    height: 1239px;
+    position: relative;
+    top: 258px;
+    border-radius: 48px;
+    left: 38px;
+}
+
+/* Titre des sections */
+
+
+h2{
+    border-bottom: 2px solid #50392B;
+    color: #50392B;
+
+}
+
+
+/* Disposition des sections */
+
+.education, .compétences, .qualités, .contact{
+    margin-bottom: 90px;
+}
+.education > h2, .compétences > h2, .qualités > h2, .contact > h2{
+    
+    margin-bottom: 30px;
+    font-size: 38px;
+}
+.education  > h3{
+    margin: 20px 0px;
+    color: #50392B;
+    font-size: 24px;
+}
+.education  > p{
+    color: #50392B;
+    font-size: 18px;
+}
+
+/* Liste des compétences */
+
+li{
+    margin: 10PX 0px;
+    color: #50392B;
+    font-size: 24px;
+    left: 25px;
+    position: relative;
+}
+
+.contact > p{
+    margin: 25px 0px;
+}
+.fa-phone{
+    
+     width: 62px;
+     position: absolute;
+     top: 1130px;
+     
+
+}
+
+.fa-envelope{
+     width: 32px;
+     position: absolute;
+     top: 1175px;
+
+}
+
+.fa-location-dot{
+     width: 32px;
+     position: absolute;
+     top: 1218px;
+
+}
+.p-contact{
+    color: #50392b ;
+    position: relative;
+    left: 30px;
+}
+
+
+
+
+.experience{
+    background-color: #321D10;
+    width: 943px;
+    height: 1239px;
+    position: relative;
+    top: 10px;
+    left: 100px;
+    border-radius: 48px;
+}
+
+#vertical-line1{
+width: 3px;
+height: 130px;
+background-color: rgb(255, 255, 255);
+position: absolute;
+left: 45px;
+top: 130px;
+}
+
+#circle1{
+width: 40px;
+height: 40px;
+background-color:#321D10;
+position: absolute;
+border: 1px solid white;
+left: 27px;
+top: 90px;
+border-radius: 50%;
+}
+
+
+#circle1 > img{
+    width: 22px;
+    position: absolute;
+    left: 7.5px;
+    top: 6px;
+    filter: invert(100%);
+}
+
+
+
+
+.T1{
+    color: white;
+    font-size: 38px;
+    position: relative;
+    left: 100px;
+    top: 85px;
+    padding-bottom: 5px;
+    width: 800px;
+    border-bottom: 2px solid #ffffff;
+}
+
+.P1{
+    color: white;
+    font-size: 24px;
+    position: relative;
+    left: 100px;
+    top: 100px;
+    width: 596px;
+    height: 120px;
+    text-align: justify;
+    line-height: 1.6;
+    letter-spacing: 0px;
+}
+
+
+
+
+#circle2{
+width: 40px;
+height: 40px;
+background-color:#321D10;
+position: absolute;
+border: 1px solid white;
+left: 27px;
+top: 345px;
+border-radius: 50%;
+}
+
+
+#circle2 > img{
+    width: 22px;
+    position: absolute;
+    left: 7.5px;
+    top: 8px;
+    filter: invert(100%);
+}
+
+
+
+
+
+
+
+.T2{
+    color: white;
+    font-size: 38px;
+    position: relative;
+    left: 100px;
+    top: 164px;
+    padding-bottom: 5px;
+    width: 800px;
+    border-bottom: 2px solid #ffffff;
+}
+
+#tip1{
+width: 12px;
+height: 12px;
+background-color:#321D10;
+position: absolute;
+border: 1px solid #50392B;
+left: 41px;
+top: 439px;
+border-radius: 50%;
+}
+
+
+
+#vertical-line2{
+width: 3px;
+height: 180px;
+background-color: rgb(255, 255, 255);
+position: absolute;
+left: 45px;
+top: 450px;
+}
+
+
+
+.info{
+    color: white;
+    font-size: 28px;
+    position: relative;
+    left: 100px;
+    top: 50px;
+    margin-bottom: 160px;
+    width: 800px;
+}
+
+.T3{
+    position: relative;
+    top: 150px;
+}
+
+.P2{
+    top: 160px;
+    font-size: 24px;
+    position: relative;
+    width: 596px;
+    text-align: justify;
+    line-height: 1.6;
+    height: 120px;
+    letter-spacing: 0px;
+}
+
+
+
+#tip2{
+width: 12px;
+height: 12px;
+background-color:#321D10;
+position: absolute;
+border: 1px solid #50392B;
+left: 41px;
+top: 714px;
+border-radius: 50%;
+}
+
+
+
+#vertical-line3{
+width: 3px;
+height: 180px;
+background-color: rgb(255, 255, 255);
+position: absolute;
+left: 45px;
+top: 725px;
+}
+
+
+
+
+
+
+.T4{
+    position: relative;
+    top: 105px;
+}
+
+
+
+.P3{
+    top: 130px;
+    position: relative;
+    width: 596px;
+    font-size: 24px;
+    text-align: justify;
+    line-height: 1.6;
+    height: 120px;
+    letter-spacing: 0px;
+}
+
+
+
+
+#tip3{
+width: 12px;
+height: 12px;
+background-color:#321D10;
+position: absolute;
+border: 1px solid  #50392B;
+left: 41px;
+top: 1038px;
+border-radius: 50%;
+}
+
+
+
+#vertical-line4{
+width: 3px;
+height: 130px;
+background-color: rgb(255, 255, 255);
+position: absolute;
+left: 45px;
+top: 1050px;
+}
+
+
+
+.T5{
+    position: relative;
+    top: 110px;
+}
+
+
+
+
+.P4{
+    top: 120px;
+    position: relative;
+    width: 596px;
+    font-size: 24px;
+    text-align: justify;
+    line-height: 1.6;
+    height: 120px;
+    letter-spacing: 0px;
+}
+
+
+/* Bouton télécharger CV */
+
+#Bouton{
+    background-color: #321D10;
+    color: white;
+    width: 200px;
+    height: 50px;
+    position: absolute;
+    left: 1200px;
+    top: 1700px;
+    border-radius: 25px;
+    text-align: center;
+    line-height: 50px;
+    font-size: 18px;
+}
+
+/* Animation au survol du bouton */
+#Bouton:hover{
+    background-color: #D9D9D9;
+    cursor: pointer;
+    color: black;
+    letter-spacing: 6px;
+    transition: 0.5s ease-out;
+    width: 280px;
+}
+
+
+
+#Bouton-R{
+    background-color: #141211;
+    color: white;
+    width: 200px;
+    height: 50px;
+    position: absolute;
+    left: 700px;
+    top: 1700px;
+    border-radius: 25px;
+    text-align: center;
+    line-height: 50px;
+    font-size: 18px;
+}
+
+
+.BC{
+    background-color: #ffffff;
+    width: 1387px;
+    height: 1852px;
+    position: absolute;
+    left: 115px;
+    top: 23px;
+    z-index: -1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

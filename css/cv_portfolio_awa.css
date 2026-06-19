@@ -1,0 +1,647 @@
+:root {
+    --couleur-primaire: #7C5740;
+    --decalement: 5vh;
+    --couleur-profil: #564032;
+    --indentation-texte: 10vw;
+}
+
+body {
+    background-color: white;
+
+}
+
+main {
+    width: 65%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    border-radius: .5vw;
+    border: .5px solid black;
+}
+
+.gauche {
+    padding-top: 300px;
+    margin: 4px;
+    border-radius: 4vw 0vw 0vw 4vw;
+    background-color: var(--couleur-primaire);
+    align-content: center;
+}
+
+.gauche h2 {
+    color: #f7f4f3;
+    align-items: center;
+}
+
+.gauche li {
+    font-family: 'open sans';
+    color: white;
+
+}
+
+.droite {
+    height: 87vh;
+    background-color: #ffff;
+}
+
+.droite h2,
+.droite p,
+.droite li,
+.droite ul {
+    color: rgb(3, 3, 3);
+    align-content: justify;
+}
+
+.droite ul,
+.droite li,
+.droite p {
+    font-family: 'open sans';
+}
+
+.droite h2 {
+    color: #7C5740;
+    margin-top: 5px;
+}
+
+
+.photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: top;
+    margin-left: 30px;
+    margin-right: -5vw;
+    z-index: 40;
+
+}
+
+section.profil {
+    position: absolute;
+    margin-top: var(--decalement);
+    display: flex;
+    align-items: center;
+    width: 80%;
+    right: 25px;
+
+}
+
+
+.profil h1,
+.profil p,
+.profil h3 {
+    color: white;
+    margin-left: 10%;
+}
+
+.info {
+    background-color: var(--couleur-profil);
+    width: 69.7%;
+    border-radius: 25px 0 0 25px;
+    border: .6px solid rgb(250, 247, 247);
+
+}
+
+.contenue {
+    padding-left: var(--indentation-texte);
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Montserrat';
+    align-items: center;
+}
+
+p {
+    font-family: 'open sans';
+}
+
+.icone i,
+ul,
+p {
+    margin-right: auto;
+    color: white;
+}
+
+h2 {
+    margin: 0px;
+    padding: 2vw;
+    text-align: left;
+}
+
+/* Pour enlever le point de la liste non ordonnée et agir sur les bordures  */
+.coord>ul {
+    list-style: none;
+    padding: 10px;
+    margin: 0 0 0 10px;
+    align-content: center;
+}
+
+.qualite h2 {
+    padding: 10px;
+    margin: 0 0 0 10px;
+    align-content: center;
+}
+
+.centre h2 {
+    padding: 10px;
+    margin: 0 0 0 10px;
+
+}
+
+.langue h2 {
+    padding: 10px;
+    margin: 0 0 0 10px;
+}
+
+.competence h2 {
+    padding: 10px;
+    margin: 0 0 0 10px;
+    align-items: center;
+}
+
+.coord h2 {
+    padding: 10px;
+    margin: 0 0 0 10px;
+}
+
+/* Transition des elements (les textes defile lentement au depart puis accélère au mileu 
+et ralentissent à la fin avec ease-in-out pendant un temps donné) */
+.gauche ul li,
+.gauche ul li>i,
+.gauche h2 {
+    transition: all 0.2s ease-in-out;
+}
+
+/* Ajout des couleurs lors du survol des elements avec hover et transform : translateX(valeur) */
+.gauche ul li:hover,
+.gauche h2:hover {
+    transform: translateX(-5px);
+    color: burlywood;
+
+    i {
+        color: burlywood;
+    }
+}
+
+/* Animation sur la photo du cv  */
+.profil img {
+    transition: all 0.3s ease-out;
+}
+
+.profil img:hover {
+    transform: scale(1.5);
+}
+
+/* Aniamation du profile (class info) */
+
+.profil {
+    animation-duration: 2s;
+    animation-name: slidein;
+    animation-delay: .8s;
+    /* temps que ça prend avant de se charger  */
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-direction: alternate;
+}
+
+@keyframes slidein {
+    from {
+        transform: translateX(120px);
+        width: 150%;
+    }
+
+    to {
+        transform: translateX(0%);
+        width: 100%;
+    }
+}
+
+/* Animation sur le nom  */
+
+.info h1 {
+    transition: all 0.2s ease-out;
+}
+
+.info h1:hover {
+    transform: translateY(2px);
+    color: rgb(194, 161, 119);
+}
+
+/* Animation sur Informaticien  */
+
+.info h3 {
+    transition: all 0.2s ease-out;
+}
+
+.info h3:hover {
+    transform: translateY(2px);
+    color: rgb(194, 161, 119);
+}
+
+/* Animation sur texte dans profil (p)  */
+
+.info p {
+    transition: all 0.2s ease-out;
+}
+
+.info p:hover {
+    transform: translateY(2px);
+    color: rgb(194, 161, 119);
+}
+
+
+/* Animation sur les titres de la partie droite */
+
+.droite h2 {
+    transition: all 0.2s ease-in-out;
+}
+
+.droite h2:hover {
+    transform: translateX(-5px);
+    color: burlywood;
+}
+
+.page-footer {
+    margin-top: 40px;
+    padding: 15px;
+    text-align: center;
+}
+
+.page-footer a {
+    padding: 10px 18px;
+    margin: 5px;
+    border: 2px;
+    border-radius: 6px;
+    background-color: rgb(236, 228, 228);
+    color: rgb(10, 10, 10);
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+
+
+/* Transition footer */
+.page-footer a {
+    transition: all 0.3s ease-in;
+}
+
+/* Hover bouton retour */
+.btn-retour:hover {
+    background-color: #283036;
+    transform: translateY(-3px);
+}
+
+/* Hover bouton télécharger */
+.btn-telecharger:hover {
+    background-color: var(--couleur-primaire);
+    transform: translateY(-3px);
+}
+
+/* Animation sur les ul  de droite*/
+
+.droite ul {
+    transition: all 0.2s ease-out;
+}
+
+.droite ul:hover {
+    transform: translateY(2px);
+    color: rgb(194, 161, 119);
+}
+
+.skill,
+.comaf {
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+}
+
+.skill h4,
+.skill p,
+.comaf h4,
+.comaf p {
+    margin: 0;
+    padding-left: 4vw;
+    padding-right: 4vw;
+    color: #7C5740;
+}
+
+
+/* Animation sur skill et comaf */
+
+.skill h4,
+p {
+    transition: all 0.2s ease-in-out;
+}
+
+.skill h4:hover,
+p:hover,
+h4:hover {
+    transform: translateX(-5px);
+    color: burlywood;
+}
+
+.droite p {
+    margin: 0;
+    padding-left: 4vw;
+    padding-right: 4vw;
+    font-size: 10px;
+    font-size: 16px;
+
+
+}
+
+
+.droite h2 {
+    margin: -2px;
+    padding-left: 4vw;
+    padding-right: 4vw;
+    margin-bottom: -15px;
+}
+
+
+.droite ul {
+    margin-left: 5vw;
+    padding-left: 10px;
+}
+
+.droite ul li {
+    margin-bottom: 3px;
+}
+
+
+/* Animation li droite  */
+.droite ul li {
+    transition: all 0.2s ease-in-out;
+}
+
+/* Ajout des couleurs lors du survol des elements avec hover et transform : translateX(valeur) */
+.droite ul li:hover {
+    transform: translateX(-5px);
+    color: burlywood;
+}
+
+
+
+/* taille des titres */
+h2 {
+    font-size: 20px;
+}
+
+
+h3 {
+    font-size: 16px;
+}
+
+
+.skill h4 {
+    font-size: 14px;
+}
+
+.skill p {
+    font-size: 14px;
+}
+
+/* texte et paragraphe */
+li {
+    font-size: 14px;
+
+}
+
+.droite li {
+    margin-left: -2%;
+
+    h2 {
+        margin-left: -2px;
+    }
+}
+
+.page-footer a {
+    font-size: 16px;
+    padding: 8px 12px;
+}
+
+.comaf h4 {
+    font-size: 14px;
+}
+
+.comaf p {
+    font-size: 14px;
+}
+
+
+
+/* Trait sOUS experience et formations  */
+
+.experience hr {
+    width: 120px;
+    height: 3px;
+    background-color: #7C5740;
+    border: none;
+    margin-top: -22px; /* Valeur negative pour faire monter le trait */
+    margin-bottom: 15px;
+    margin-left: 40px;
+}
+
+.formation hr {
+    width: 120px;
+    height: 3px;
+    background-color: #7C5740;
+    border: none;
+    /* margin-top:10px; */
+    /* margin-bottom: 15px; */
+    margin-left: 51px;
+    margin-top: -22px;
+
+}
+
+
+/* Responsivité sur telephone */
+
+ @media screen and (max-width: 768px) {
+    * {
+        margin: 0%;
+    }
+
+    main {
+        width: 95%;
+        flex-direction: column;
+        border-radius: 10px;
+        margin: auto;
+    }
+
+    .gauche {
+    padding-top:2px;
+    margin: 4px;
+    border-radius: 4vw 0vw 0vw 4vw;
+    background-color: var(--couleur-primaire);
+    align-content: center;
+}
+
+    .droite {
+        width: 100%;
+        height: auto;
+        padding: 15px;
+        margin: 10px auto 0px auto;
+        width: 320px;
+
+    } 
+
+ section.profil {
+        position: static;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-top: 15px;
+        width: 100%;
+    }
+
+    .photo {
+        width: 120px;
+        height: 120px;
+        margin: 0;
+    } 
+
+ .info {
+        width: 100%;
+        border-radius: 15px;
+        margin-top: 10px;
+        text-align: center;
+        padding: 3px;
+        width: 324px;
+        padding-left: 1px;
+    } 
+
+ .profil h1,
+    .profil h3,
+    .profil p {
+        margin-left: 0;
+    }
+
+    .contenue {
+        padding-left: 15px;
+        padding-right: 15px;
+    } */
+
+ .skill,
+    .comaf {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .droite ul {
+        margin-left: 15px;
+    } */
+
+/*taille des titres */
+ h2 {
+        font-size: 16px;
+    }
+
+
+    h3 {
+        font-size: 14px;
+    } */
+
+
+ .skill h4 {
+        font-size: 12px;
+    }
+
+    .skill p {
+        font-size: 12px;
+    } 
+
+ /*texte et paragraphe */
+ li {
+        font-size: 12px;
+        line-height: 1.4;
+    } 
+
+ .page-footer a {
+        font-size: 12px;
+        padding: 8px 12px;
+    } 
+
+ .skill {
+        display: flex;
+        justify-content: flex-start;
+        gap: 50px;
+        flex-direction: row;
+        align-items: center;
+        padding: 5px;
+
+    } 
+
+ .comaf h4 {
+        font-size: 12px;
+    }
+
+ .comaf p {
+        font-size: 12px;
+    } 
+
+ .comaf {
+        display: flex;
+        justify-content: flex-start;
+        gap: 50px;
+        flex-direction: row;
+        align-items: center;
+        padding: 5px;
+
+
+    } 
+
+ 
+    /* Trait sOUS experience et formations  */
+
+.experience hr {
+    width: 0px;
+    height: 0px;
+    background-color: #7C5740;
+    border: none;
+    /* margin-top:10px; */
+    /* margin-bottom: 15px; */
+    margin-left: 0px;
+    margin-top: 0px;
+
+}
+
+.formation hr {
+    width: 0px;
+    height: 0px;
+    background-color: #7C5740;
+    border: none;
+    /* margin-top:10px; */
+    /* margin-bottom: 15px; */
+    margin-left: 0px;
+    margin-top: 0px;
+
+}
+
+.formation h2{
+    margin-bottom: 4px;
+}
+
+
+
+.droite p {
+    margin: 0;
+    padding-left: 4vw;
+    padding-right: 4vw;
+    font-size: 10px;
+    font-size: 16px;
+
+
+}
+
+
+
+} 
