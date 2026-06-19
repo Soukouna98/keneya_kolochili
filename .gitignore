@@ -29,8 +29,9 @@ build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 
-### VS Code ###
+### VS Code ### 
 .vscode/
-
-### application.properties ###
-application.properties
+<<<<<<< HEAD
+=======
+/.application.properties/
+>>>>>>> 57da9f38943dabbe4e5546b7084945c325748228
