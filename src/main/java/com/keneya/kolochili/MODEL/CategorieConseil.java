@@ -31,5 +31,5 @@ public class CategorieConseil {
     private boolean archive;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "admin_id", nullable = false)
-    private Utilisateur user;
+    private Admin admin;
 }
