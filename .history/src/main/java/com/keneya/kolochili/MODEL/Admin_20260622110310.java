@@ -1,0 +1,13 @@
+package com.keneya.kolochili.MODEL;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Entity;
+import lombok.Getter;
+import lombok.Setter;
+
+@Entity
+@Table(name = "admins")
+@Getter
+@Setter
+public class Admin extends Utilisateur {
+}
