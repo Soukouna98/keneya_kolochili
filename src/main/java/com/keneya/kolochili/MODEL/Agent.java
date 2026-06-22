@@ -3,6 +3,7 @@ package com.keneya.kolochili.MODEL;
 import java.util.List;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -21,4 +22,8 @@ public class Agent extends Utilisateur {
     private String specialite;
     @OneToMany(mappedBy = "agent")
     private List<Conseil> conseils;
+    //La relation inversée entre la pulication et l'agent
+    @OneToMany(mappedBy = "agent",  fetch = FetchType.LAZY)
+    private List<Publication> publications;
+    
 }
