@@ -36,7 +36,7 @@ public class Audit {
 
     @Column(nullable = false)
     private Integer entityId;
-
+    
     @Column(nullable = false, length = 255)
     private String url;
 
