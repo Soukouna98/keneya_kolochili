@@ -1,4 +1,4 @@
-package com.keneya.kolochili.Model;
+package com.keneya.kolochili.MODEL;
 
 import com.keneya.kolochili.Enumeration.TypeRole;
 
@@ -9,34 +9,40 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name="users")
+//@Table(name = "utilisateur")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-//@Inheritance(strategy= Inheritance.JOINED)
-public class User {
-
+@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
+public class Utilisateur {
+    
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    @Column(nullable = false)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
+    @Column(nullable = false ,length = 50)
     private String nom;
-    @Column(nullable = false)
+     @Column(nullable = false ,length = 50)
     private String prenom;
-    @Column(unique = true,nullable = false)
+     @Column(nullable = false ,length = 50, unique = true)
     private String email;
-    @Column(nullable = false)
+     @Column(nullable = false ,length = 50)
     private String mdp;
+     @Column(nullable = false ,length = 12)
+    private String phone;
     @Enumerated(EnumType.STRING)
     private TypeRole role;
-    private String phone;
     private boolean archive;
+
+
+
+    
 }
