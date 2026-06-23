@@ -1,4 +1,4 @@
-package com.keneya.kolochili.Service.User;
+package com.keneya.kolochili.Service;
 
 import java.util.List;
 
@@ -17,13 +17,14 @@ import com.keneya.kolochili.Mapper.Request.ActivitesDTORequestMapper;
 import com.keneya.kolochili.Mapper.Response.User.ActivitesDTOResponseMapper;
 import com.keneya.kolochili.Repository.ActivitesRepository;
 import com.keneya.kolochili.Repository.AgentRepository;
+import com.keneya.kolochili.Repository.CategorieActiviteRepository;
 
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
-public class ActivitesServiceImpl implements IServiceActivite {
+public class ActivitesService implements IServiceActivite {
 
     private final ActivitesRepository activitesRepository;
     private final AgentRepository agentRepository;

@@ -1,12 +1,23 @@
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.keneya.kolochili.DTO.Request.User.ActivitesDTORequest;
 import com.keneya.kolochili.DTO.Response.APIResponse;
 import com.keneya.kolochili.DTO.Response.User.ActivitesDTOResponse;
+import com.keneya.kolochili.Service.ActivitesService;
+
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
@@ -15,7 +26,8 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class ActivitesController {
 
-    private final ActivitesService activitesService;
+    
+    @Autowired private final ActivitesService activitesService;
 
     // CREATE
     @PostMapping(consumes = "application/json")
@@ -38,7 +50,7 @@ public class ActivitesController {
             @PathVariable Long id,
             @Valid @RequestBody ActivitesDTORequest dto) {
 
-        activitesService.modifier(id, dto);
+        activitesService.modifier(dto, id);
 
         return ResponseEntity.status(HttpStatus.OK)
                 .body(new APIResponse<>(
@@ -53,7 +65,7 @@ public class ActivitesController {
     public ResponseEntity<APIResponse<ActivitesDTOResponse>> lire(
             @PathVariable Long id) {
 
-        ActivitesDTOResponse response = activitesService.getById(id);
+        ActivitesDTOResponse response = activitesService.findById(id);
 
         return ResponseEntity.status(HttpStatus.OK)
                 .body(new APIResponse<>(
