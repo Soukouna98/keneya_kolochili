@@ -1,8 +1,12 @@
+package com.keneya.kolochili.MODEL;
+
 import java.time.LocalDateTime;
 
-import com.keneya.kolochili.MODEL.Citoyen;
+import com.keneya.kolochili.Enumeration.TypeFrequence;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -35,10 +39,12 @@ public class Rappel{
 	private LocalDateTime dateRappel;
 	private LocalDateTime dateCreation;
 	private boolean archive;
+	@Enumerated(EnumType.STRING)
+	private TypeFrequence frequence;
 	private int intervalle;
 
 	@ManyToOne
-	@JoinColumn(name = "citoyen_id", nullable = false)
+	@JoinColumn(name = "id_citoyen", nullable = false)
 	private Citoyen citoyen;
 
 }

@@ -3,7 +3,6 @@ package com.keneya.kolochili.MODEL;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import com.keneya.kolochili.MODEL.Rappel;
 
 
 import jakarta.persistence.Entity;
@@ -22,8 +21,8 @@ import lombok.Setter;
 @AllArgsConstructor
 public class Citoyen extends Utilisateur{
 
-	@OneToMany(mappedBy = "citoyen")
-	private List<Rappel> rappels;
+	//@OneToMany(mappedBy = "citoyen")
+	//private List<Rappel> rappels;
 
     private LocalDateTime date_naissance;
 }
