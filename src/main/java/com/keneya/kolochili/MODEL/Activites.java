@@ -34,7 +34,7 @@ public class Activites {
     private Long idActivites;
 
     @ManyToOne
-    @JoinColumn(name = "idAgent", nullable = false)
+    @JoinColumn(name = "id_agent")
     private Agent agent;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -55,5 +55,6 @@ public class Activites {
 
     @Column(nullable = false, length = 50)
     private String description;
+
 
 }
