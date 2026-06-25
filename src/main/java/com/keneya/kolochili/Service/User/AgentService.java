@@ -97,6 +97,7 @@ public class AgentService {
         agentRepository.save(agent);
     }
 
+
     public void deArchiver(Long id) {
         if (!TypeRole.ADMIN.equals(CurrentUserContext.get().getRole().getName())) {
             throw new ForbiddenException("Vous n'avez pas les droits d'administrateur");
