@@ -22,6 +22,7 @@ import com.keneya.kolochili.Repository.RoleRepository;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 
+
 @Service
 @RequiredArgsConstructor
 public class CitoyenService {

@@ -1,4 +1,4 @@
-package com.keneya.kolochili.Controller;
+package com.keneya.kolochili.controller;
 
 import java.util.List;
 
