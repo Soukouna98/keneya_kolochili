@@ -3,9 +3,6 @@ package com.keneya.kolochili.MODEL;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import com.keneya.kolochili.MODEL.Rappel;
-
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;

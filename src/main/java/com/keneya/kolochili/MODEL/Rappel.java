@@ -1,6 +1,6 @@
-import java.time.LocalDateTime;
+package com.keneya.kolochili.MODEL;
 
-import com.keneya.kolochili.MODEL.Citoyen;
+import java.time.LocalDateTime;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
