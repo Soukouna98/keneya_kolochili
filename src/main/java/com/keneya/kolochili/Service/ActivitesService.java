@@ -14,7 +14,7 @@ import com.keneya.kolochili.MODEL.Activites;
 import com.keneya.kolochili.MODEL.Agent;
 import com.keneya.kolochili.MODEL.CategorieActivite;
 import com.keneya.kolochili.Mapper.Request.ActivitesDTORequestMapper;
-import com.keneya.kolochili.Mapper.Response.User.ActivitesDTOResponseMapper;
+import com.keneya.kolochili.Mapper.Response.ActivitesDTOResponseMapper;
 import com.keneya.kolochili.Repository.ActivitesRepository;
 import com.keneya.kolochili.Repository.AgentRepository;
 import com.keneya.kolochili.Repository.CategorieActiviteRepository;
@@ -29,9 +29,9 @@ public class ActivitesService implements IServiceActivite {
     private final ActivitesRepository activitesRepository;
     private final AgentRepository agentRepository;
     private final CategorieActiviteRepository categorieRepository;
-
     private final ActivitesDTORequestMapper requestMapper;
     private final ActivitesDTOResponseMapper responseMapper;
+
 
     // CREATE
     @Override
@@ -99,13 +99,15 @@ public class ActivitesService implements IServiceActivite {
     }
 
     // GET BY ID
+   
     @Override
     public ActivitesDTOResponse findById(Long id) {
 
         Activites activite = activitesRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Activité non trouvée"));
 
-        return responseMapper.apply(activite);
+        return 
+        responseMapper.apply(activite);
     }
 
     // GET ALL
@@ -115,7 +117,7 @@ public class ActivitesService implements IServiceActivite {
         List<Activites> activites = activitesRepository.findAll();
         
         return activites.stream()
-                .map(responseMapper)
+                .map(responseMapper::apply)
                 .toList();
     }
 }

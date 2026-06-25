@@ -1,7 +1,7 @@
+package com.keneya.kolochili.controller;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -26,8 +26,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class ActivitesController {
 
-    
-    @Autowired private final ActivitesService activitesService;
+    private final ActivitesService activitesService;
 
     // CREATE
     @PostMapping(consumes = "application/json")
@@ -52,12 +51,13 @@ public class ActivitesController {
 
         activitesService.modifier(dto, id);
 
-        return ResponseEntity.status(HttpStatus.OK)
-                .body(new APIResponse<>(
+        return ResponseEntity.ok(
+                new APIResponse<>(
                         true,
                         "Activité modifiée avec succès",
                         null
-                ));
+                )
+        );
     }
 
     // GET BY ID
@@ -67,13 +67,15 @@ public class ActivitesController {
 
         ActivitesDTOResponse response = activitesService.findById(id);
 
-        return ResponseEntity.status(HttpStatus.OK)
-                .body(new APIResponse<>(
+        return ResponseEntity.ok(
+                new APIResponse<>(
                         true,
                         "Activité trouvée avec succès",
                         response
-                ));
+                )
+        );
     }
+    
 
     // GET ALL
     @GetMapping
@@ -81,12 +83,13 @@ public class ActivitesController {
 
         List<ActivitesDTOResponse> responses = activitesService.getAll();
 
-        return ResponseEntity.status(HttpStatus.OK)
-                .body(new APIResponse<>(
+        return ResponseEntity.ok(
+                new APIResponse<>(
                         true,
-                        "Liste des activités",
+                        "Liste des activités",                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
                         responses
-                ));
+                )
+        );
     }
 
     // DELETE

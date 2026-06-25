@@ -1,4 +1,4 @@
-package com.keneya.kolochili.Mapper.Response.User;
+package com.keneya.kolochili.Mapper.Response;
 
 import java.util.function.Function;
 
@@ -18,7 +18,7 @@ public class ActivitesDTOResponseMapper
                 t.getIdActivites(),
                 t.getAgent().getNom(),
                 t.getAgent().getPrenom(),
-                t.getCategorieActivite().getNom(),
+                t.getCategorieActivite().getLibelle(),
                 t.getDate(),
                 t.getNom(),
                 t.getNiveau(),

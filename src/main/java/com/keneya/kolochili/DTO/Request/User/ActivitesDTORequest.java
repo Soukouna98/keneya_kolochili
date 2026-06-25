@@ -24,7 +24,7 @@ public record ActivitesDTORequest(
 
         @NotNull(message = "Le niveau est obligatoire")
         TypeNiveau niveau,
-
+        
         @NotNull(message = "La durée est obligatoire")
         LocalTime duree,
 
