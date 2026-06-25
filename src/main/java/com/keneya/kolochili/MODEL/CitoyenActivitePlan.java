@@ -1,5 +1,8 @@
 package com.keneya.kolochili.MODEL;
 
+import java.util.List;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -7,6 +10,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,7 +21,7 @@ import lombok.Setter;
 @Table(name = "CitoyenActivitePlan")
 @Getter
 @Setter
-@AllArgsConstructor
+@AllArgsConstructor 
 @NoArgsConstructor
 public class CitoyenActivitePlan {
 
@@ -34,6 +38,7 @@ public class CitoyenActivitePlan {
     @JoinColumn(name = "idActivite", nullable = false)
     private Activites activite;
 
-    @Column(nullable = false, length = 50)
-    private String freqeunce;
+    @OneToMany(mappedBy = "citoyenActivitePlan",
+    cascade = CascadeType.ALL)
+    private List<PlanningActivite> plannings;
 }
