@@ -1,4 +1,4 @@
-package com.keneya.kolochili.controller;
+package com.keneya.kolochili.Controller;
 
 import java.util.List;
 
@@ -22,7 +22,7 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping(path = "/citoyens", produces = "application/json")
+@RequestMapping(path = "/api/citoyens", produces = "application/json") // <-- Ajoutez /api ici
 @RequiredArgsConstructor
 public class CitoyenControlller {
 
