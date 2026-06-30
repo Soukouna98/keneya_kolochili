@@ -9,6 +9,7 @@ import com.keneya.kolochili.MODEL.Publication;
 public interface PublicationRepository extends JpaRepository<Publication, Long>{
     List<Publication> findByArchiveFalse();
     List<Publication> findByArchiveTrue();
+    
 
     
     

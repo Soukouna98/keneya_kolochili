@@ -23,7 +23,7 @@ public interface IServicePublication {
     void delete(Long id);
     //Les informations de l'archive et desarche
     PublicationDTO archiver(Long id);
-    PublicationDTO desarchiver(Long id);
+   // PublicationDTO desarchiver(Long id);
     List<PublicationDTO> getArchives();
 
      
