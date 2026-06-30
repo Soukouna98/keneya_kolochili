@@ -8,6 +8,7 @@ import com.keneya.kolochili.DTO.PublicationDTO;
 import com.keneya.kolochili.DTO.Response.APIResponse;
 import com.keneya.kolochili.IService.IServicePublication;
 
+
 import jakarta.validation.Valid;
 
 
@@ -15,7 +16,7 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
- 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -87,31 +88,22 @@ public class PublicationController {
                                                                 null));
         }
 
-      
+     //Archiver par la methode delete
+        @DeleteMapping("/{id}")
+        public ResponseEntity<APIResponse<String>> delete(@PathVariable Long id) {
 
-        // La partie archive
-        @PatchMapping("/{id}/archiver")
-        public ResponseEntity<APIResponse<Object>> archiver(@PathVariable Long id) {
+        service.delete(id);
 
-                service.archiver(id);
-                return ResponseEntity.status(HttpStatus.OK)
-                                .body(new APIResponse<>(
-                                                true,
-                                                "La publication a été bien archivée ",
-                                                null));
-        }
-
-    @PatchMapping("/{id}/desarchiver")
-    public ResponseEntity<APIResponse<Object>> desarchiver(@PathVariable Long id) {
-    service.desarchiver(id);
-    return ResponseEntity.status(HttpStatus.OK)
-                        .body(new APIResponse<>(
-                                true,
-                                "La publication a été bien desarchivée ",
-                                null)
-                        );
-
+         return ResponseEntity.ok(
+            new APIResponse<>(
+                    true,
+                    "Publication archivée avec succès.",
+                    null
+            )
+    );
 }
+
+      
 
 @GetMapping("/archives")
  
@@ -125,7 +117,34 @@ public class PublicationController {
                                                                 publicationDTO));
         }
 
+
+        
+//         // La partie archive
+//         @PatchMapping("/{id}/archiver")
+//         public ResponseEntity<APIResponse<Object>> archiver(@PathVariable Long id) {
+
+//                 service.archiver(id);
+//                 return ResponseEntity.status(HttpStatus.OK)
+//                                 .body(new APIResponse<>(
+//                                                 true,
+//                                                 "La publication a été bien archivée ",
+//                                                 null));
+//         }
+
+//     @PatchMapping("/{id}/desarchiver")
+//     public ResponseEntity<APIResponse<Object>> desarchiver(@PathVariable Long id) {
+//     service.desarchiver(id);
+//     return ResponseEntity.status(HttpStatus.OK)
+//                         .body(new APIResponse<>(
+//                                 true,
+//                                 "La publication a été bien desarchivée ",
+//                                 null)
+//                         );
+
+// }
+
                
+
 
 
 }

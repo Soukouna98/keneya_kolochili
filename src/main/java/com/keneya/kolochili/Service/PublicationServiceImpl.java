@@ -28,7 +28,7 @@ public class PublicationServiceImpl implements IServicePublication {
         Agent agent = agentRepository.findById(dto.getAgentId())
                 .orElseThrow(() -> new RuntimeException("Publication introuvable"));
 
-        Publication p = mapper.toEntity(dto); // ici on appelé le Mappeur 
+        Publication p = mapper.toEntity(dto); // ici on a appelé le Mappeur 
         p.setAgent(agent);
 
         return mapper.toDTO(publicationRepository.save(p));
@@ -71,10 +71,29 @@ public class PublicationServiceImpl implements IServicePublication {
         return mapper.toDTO(publicationRepository.save(p));
     }
 
-     //Suppression de publication
-     public void delete(Long id) {
-        publicationRepository.deleteById(id);
+//      //Suppression de publication
+//      public void delete(Long id) {
+//         publicationRepository.deleteById(id);
+
+//     }
+
+//delete par archive
+@Override
+public void delete(Long id) {
+
+    Publication publication = publicationRepository.findById(id)
+            .orElseThrow(() -> new EntityNotFoundException("Publication introuvable"));
+
+    if (publication.isArchive()) {
+        throw new EntityNotFoundException("Cette publication est déjà archivée.");
     }
+
+    publication.setArchive(true);
+
+    publicationRepository.save(publication);
+}
+
+
     //Partie archive
     @Override
     public PublicationDTO archiver(Long id) {
@@ -89,20 +108,7 @@ public class PublicationServiceImpl implements IServicePublication {
     return mapper.toDTO(saved);
 }
 
-//Partie desarchive
-@Override
-public PublicationDTO desarchiver(Long id) {
 
-    Publication publication = publicationRepository.findById(id)
-            .orElseThrow(() -> new EntityNotFoundException("Publication introuvable"));
-
-    publication.setArchive(false);
-
-    Publication saved = publicationRepository.save(publication);
-
-    return mapper.toDTO(saved);
-}
-// La methode pour recuperer les publications archivées
 public List<PublicationDTO> getArchives() {
 
     return publicationRepository.findByArchiveTrue()
@@ -110,6 +116,21 @@ public List<PublicationDTO> getArchives() {
             .map(mapper::toDTO)
             .toList();
 }
+//Partie desarchive
+// @Override
+// public PublicationDTO desarchiver(Long id) {
+
+//     Publication publication = publicationRepository.findById(id)
+//             .orElseThrow(() -> new EntityNotFoundException("Publication introuvable"));
+
+//     publication.setArchive(false);
+
+//     Publication saved = publicationRepository.save(publication);
+
+//     return mapper.toDTO(saved);
+// }
+// La methode pour recuperer les publications archivées
+
 
      
      
