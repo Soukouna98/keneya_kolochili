@@ -38,7 +38,9 @@ public class CitoyenActivitePlan {
     @JoinColumn(name = "idActivite", nullable = false)
     private Activites activite;
 
-    @OneToMany(mappedBy = "citoyenActivitePlan",
-    cascade = CascadeType.ALL)
-    private List<PlanningActivite> plannings;
+    @OneToMany(
+        mappedBy = "citoyenActivitePlan",
+        cascade = CascadeType.ALL,
+        orphanRemoval = true)
+        private List<PlanningActivite> plannings;
 }

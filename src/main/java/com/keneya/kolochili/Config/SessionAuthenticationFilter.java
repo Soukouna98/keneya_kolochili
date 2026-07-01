@@ -20,10 +20,19 @@ import lombok.RequiredArgsConstructor;
 public class SessionAuthenticationFilter extends OncePerRequestFilter {
 
     @Override
-    protected boolean shouldNotFilter(HttpServletRequest request) {
-        String path = request.getServletPath();
-        return path.startsWith("/auth");
+    protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
+        String path = request.getRequestURI();
+        String method = request.getMethod();
+
+        if (path.startsWith("/auth/")) {
+            return true;
+        }
+        return "/citoyens".equals(path) && "POST".equalsIgnoreCase(method);
+
+        
     }
+
+        
 
     @Override
     protected void doFilterInternal(
