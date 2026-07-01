@@ -20,7 +20,7 @@ import lombok.RequiredArgsConstructor;
 @RestController
 @RequestMapping(path = "/admins", produces = "application/json")
 @RequiredArgsConstructor
-public class AdminControlller {
+public class AdminController {
 
         private final AdminService adminService;
 

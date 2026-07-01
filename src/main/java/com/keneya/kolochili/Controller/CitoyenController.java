@@ -1,4 +1,4 @@
-package com.keneya.kolochili.controller;
+package com.keneya.kolochili.Controller;
 
 import java.util.List;
 
@@ -13,96 +13,94 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.keneya.kolochili.DTO.Request.User.AgentDTORequest;
+import com.keneya.kolochili.DTO.Request.User.CitoyenDTORequest;
 import com.keneya.kolochili.DTO.Response.APIResponse;
-import com.keneya.kolochili.DTO.Response.User.AgentDTOResponse;
-import com.keneya.kolochili.Service.User.AgentService;
+import com.keneya.kolochili.DTO.Response.User.CitoyenDTOResponse;
+import com.keneya.kolochili.Service.User.CitoyenService;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping(path = "/agents", produces = "application/json")
+@RequestMapping(path = "/api/citoyens", produces = "application/json") // <-- Ajoutez /api ici
 @RequiredArgsConstructor
-public class AgentControlller {
+public class CitoyenController {
 
-        private final AgentService agentService;
+        private final CitoyenService citoyenService;
 
         @PostMapping(consumes = "application/json")
-        public ResponseEntity<APIResponse<AgentDTORequest>> creer(@Valid @RequestBody AgentDTORequest agentDTO) {
-                agentService.creer(agentDTO);
+        public ResponseEntity<APIResponse<CitoyenDTORequest>> creer(@Valid @RequestBody CitoyenDTORequest citoyenDTO) {
+                citoyenService.creer(citoyenDTO);
                 return ResponseEntity.status(HttpStatus.CREATED)
                         .body(
                                 new APIResponse<>(
                                         true,
-                                        "Agent insere avec success",
+                                        "Citoyen inserer avec success",
                                         null
                                 )
                         );
         }
 
         @PutMapping(path = "/{id}", consumes = "application/json")
-        public ResponseEntity<APIResponse<AgentDTOResponse>> modifier(@Valid @RequestBody AgentDTORequest agentDTO, @PathVariable Long id) {
-                agentService.modifier(agentDTO, id);
+        public ResponseEntity<APIResponse<CitoyenDTOResponse>> modifier(@Valid @RequestBody CitoyenDTORequest citoyenDTO, @PathVariable Long id) {
+                citoyenService.modifier(citoyenDTO, id);
                 return ResponseEntity.status(HttpStatus.OK)
                         .body(
                                 new APIResponse<>(
                                         true,
-                                        "Agent modifier avec success",
+                                        "Citoyen modifier avec success",
                                         null
                                 )
                         );
         }
 
         @GetMapping("/{id}")
-        public ResponseEntity<APIResponse<AgentDTOResponse>> lire(@PathVariable Long id) {
-                AgentDTOResponse agentDTOResponse = agentService.getById(id);
+        public ResponseEntity<APIResponse<CitoyenDTOResponse>> lire(@PathVariable Long id) {
+                CitoyenDTOResponse citoyenDTOResponse = citoyenService.getById(id);
 
                 return ResponseEntity.status(HttpStatus.OK)
                         .body(new APIResponse<>(
                                 true,
-                                "Agent trouve avec success",
-                                agentDTOResponse
+                                "Citoyen trouve avec success",
+                                citoyenDTOResponse
                         )
                         );
         }
 
         @GetMapping
-        public ResponseEntity<APIResponse<List<AgentDTOResponse>>> liste() {
-                List<AgentDTOResponse> agentDTOResponses = agentService.getAll();
+        public ResponseEntity<APIResponse<List<CitoyenDTOResponse>>> liste() {
+                List<CitoyenDTOResponse> citoyenDTOResponses = citoyenService.getAll();
 
                 return ResponseEntity.status(HttpStatus.OK)
-                        .body(
-                                new APIResponse<>(
-                                        true,
-                                        "Voici la liste des agent",
-                                        agentDTOResponses
-                                )
+                        .body(new APIResponse<>(
+                                true,
+                                "Voici la liste des citoyens",
+                                citoyenDTOResponses
+                        )
                         );
         }
 
         @PatchMapping("/{id}/archiver")
         public ResponseEntity<APIResponse<Object>> archiver(@PathVariable Long id) {
-                agentService.archiver(id);
+                citoyenService.archiver(id);
 
                 return ResponseEntity.status(HttpStatus.NO_CONTENT)
                         .body(new APIResponse<>(
                                 true,
-                                "Agent archiver avec success",
+                                "Citoyen archiver avec success",
                                 null)
                         );
         }
 
         @PatchMapping("/{id}/de-archiver")
         public ResponseEntity<APIResponse<Object>> desArchiver(@PathVariable Long id) {
-                agentService.deArchiver(id);
+                citoyenService.deArchiver(id);
 
                 return ResponseEntity.status(HttpStatus.NO_CONTENT)
                         .body(new APIResponse<>(
                                 true,
-                                "Agent desarchiver avec success",
+                                "Citoyen desarchiver avec success",
                                 null)
                         );
         }
-        
 }
