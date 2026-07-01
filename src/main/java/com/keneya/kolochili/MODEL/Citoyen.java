@@ -17,5 +17,8 @@ import lombok.Setter;
 @AllArgsConstructor
 public class Citoyen extends Utilisateur{
 
+	//@OneToMany(mappedBy = "citoyen")
+	//private List<Rappel> rappels;
+
     private LocalDateTime date_naissance;
 }
