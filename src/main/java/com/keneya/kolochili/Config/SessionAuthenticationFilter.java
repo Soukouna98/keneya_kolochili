@@ -1,9 +1,12 @@
 package com.keneya.kolochili.Config;
 
 import java.io.IOException;
+
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
+
 import com.keneya.kolochili.MODEL.Utilisateur;
+
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
