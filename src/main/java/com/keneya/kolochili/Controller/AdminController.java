@@ -1,4 +1,4 @@
-package com.keneya.kolochili.Controller;
+package com.keneya.kolochili.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,7 +20,7 @@ import lombok.RequiredArgsConstructor;
 @RestController
 @RequestMapping(path = "/admins", produces = "application/json")
 @RequiredArgsConstructor
-public class AdminControlller {
+public class AdminController {
 
         private final AdminService adminService;
 

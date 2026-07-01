@@ -1,19 +1,19 @@
 package com.keneya.kolochili.Service;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
+import com.keneya.kolochili.Config.CurrentUserContext;
 import com.keneya.kolochili.DTO.Request.CategorieActiviteDTORequest;
 import com.keneya.kolochili.DTO.Response.CategorieActiviteDTOResponse;
 import com.keneya.kolochili.Exception.ForbiddenException;
 import com.keneya.kolochili.IService.ICategorieActiviteService;
 import com.keneya.kolochili.MODEL.Admin;
 import com.keneya.kolochili.MODEL.CategorieActivite;
-import com.keneya.kolochili.Repository.CategorieActiviteRepository;
+import com.keneya.kolochili.MODEL.Utilisateur;
 import com.keneya.kolochili.Repository.AdminRepository;
-
+import com.keneya.kolochili.Repository.CategorieActiviteRepository;
 
 import lombok.RequiredArgsConstructor;
 
@@ -23,7 +23,6 @@ public class CategorieActiviteService implements ICategorieActiviteService {
     
     private final CategorieActiviteRepository categorieRepository;
     private final AdminRepository adminRepository;
-
 
     @Override
     public List<CategorieActiviteDTOResponse> getAllCategories() {
@@ -42,16 +41,20 @@ public class CategorieActiviteService implements ICategorieActiviteService {
 
     @Override
     public CategorieActiviteDTOResponse createCategory(CategorieActiviteDTORequest request) {
+        Utilisateur user = CurrentUserContext.get();
+        Admin admin = adminRepository.findById(user.getId())
+                .orElseThrow(() -> new ForbiddenException("Admin non trouvé"));
         CategorieActivite categorie = new CategorieActivite();
         categorie.setLibelle(request.getLibelle());
         categorie.setDescription(request.getDescription());
+        categorie.setAdmin(admin);
         categorie.setArchive(false);
         /*Admin admin = adminRepository.findById(request.getIdAdmin())
                 .orElseThrow(() -> new ForbiddenException("Admin non trouvé"));
         categorie.setAdmin(admin.getId());*/
-        Admin admin = adminRepository.findById(request.getIdAdmin())
+        Admin admin1 = adminRepository.findById(request.getIdAdmin())
                 .orElseThrow(() -> new ForbiddenException("Admin non trouvé"));
-        categorie.setAdmin(admin);
+        categorie.setAdmin(admin1);
 
         CategorieActivite saved = categorieRepository.save(categorie);
         return mapToResponse(saved);

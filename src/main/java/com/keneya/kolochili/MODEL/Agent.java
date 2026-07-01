@@ -22,6 +22,8 @@ public class Agent extends Utilisateur {
     private String specialite;
     @OneToMany(mappedBy = "agent")
     private List<Conseil> conseils;
+
+    
     //La relation inversée entre la pulication et l'agent
     @OneToMany(mappedBy = "agent",  fetch = FetchType.LAZY)
     private List<Publication> publications;

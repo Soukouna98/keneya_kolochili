@@ -22,9 +22,9 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping(path = "/citoyens", produces = "application/json")
+@RequestMapping(path = "/api/citoyens", produces = "application/json") // <-- Ajoutez /api ici
 @RequiredArgsConstructor
-public class CitoyenControlller {
+public class CitoyenController {
 
         private final CitoyenService citoyenService;
 

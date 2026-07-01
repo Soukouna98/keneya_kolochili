@@ -32,15 +32,16 @@ public class Publication {
     @JoinColumn(name = "agent_id", nullable = false)
     private Agent agent;
     @Column(name = "maladie", nullable = false, length = 100)
-    private String nom_maladie;
+    private String nomMaladie;
     @Column(name = "symptome", nullable = false, columnDefinition = "Text")
     private String symptome;
-    @Column(name = "conseil_preventif", nullable = false, columnDefinition = "Text")
+    @Column(name = "cconseilPreventif", nullable = false, columnDefinition = "Text")
     private String conseilPreventif;
     @CreationTimestamp
     @Column(name = "date", nullable = false)
     private LocalDateTime dateCreation;
     @Column(nullable = false)
     private String sources;
+    @Column(nullable=false)
     private boolean archive;
 }
