@@ -18,4 +18,8 @@ import lombok.Setter;
 public class Citoyen extends Utilisateur{
 
     private LocalDateTime date_naissance;
+
+    public void setTelephone(String telephone) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }

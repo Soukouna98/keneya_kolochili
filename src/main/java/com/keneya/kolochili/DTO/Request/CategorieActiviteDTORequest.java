@@ -16,4 +16,5 @@ public class CategorieActiviteDTORequest {
     private String libelle;
     
     private String description;
+    private Long idAdmin;
 }

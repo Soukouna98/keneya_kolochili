@@ -43,7 +43,7 @@ public class AdminService {
         admin.setNom(entity.nom());
         admin.setPrenom(entity.prenom());
         admin.setEmail(entity.email());
-        admin.setPhone(entity.telephone());
+        admin.setTelephone(entity.telephone());
         admin.setMdp(entity.password());
         adminRepository.save(admin);
     }

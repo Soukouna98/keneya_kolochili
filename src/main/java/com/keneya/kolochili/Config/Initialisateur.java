@@ -39,7 +39,7 @@ public class Initialisateur {
             admin.setNom("pheno");
             admin.setPrenom("AON");
             admin.setMdp("admin123"); 
-            admin.setPhone("76662725");
+            admin.setTelephone("76662725");
             admin.setRole(role);
             userRepository.save(admin);
         } else {

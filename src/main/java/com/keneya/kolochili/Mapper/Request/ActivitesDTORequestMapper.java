@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 import com.keneya.kolochili.DTO.Request.User.ActivitesDTORequest;
 import com.keneya.kolochili.MODEL.Activites;
 
+
 @Component
 public class ActivitesDTORequestMapper
         implements Function<ActivitesDTORequest, Activites> {
@@ -14,14 +15,14 @@ public class ActivitesDTORequestMapper
     @Override
     public Activites apply(ActivitesDTORequest t) {
 
-        Activites activites = new Activites();
+    Activites a = new Activites();
 
-        activites.setDate(t.date());
-        activites.setNom(t.nom());
-        activites.setNiveau(t.niveau());
-        activites.setDuree(t.duree());
-        activites.setDescription(t.description());
+    a.setDate(t.date());
+    a.setNom(t.nom());
+    a.setNiveau(t.niveau());
+    a.setDuree(t.duree());
+    a.setDescription(t.description());
 
-        return activites;
+    return a;
     }
 }

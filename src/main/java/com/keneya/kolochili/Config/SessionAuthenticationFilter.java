@@ -22,7 +22,10 @@ public class SessionAuthenticationFilter extends OncePerRequestFilter {
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) {
         String path = request.getServletPath();
-        return path.startsWith("/auth");
+        // On exclut /auth ET les routes de documentation Swagger / OpenAPI
+        return path.startsWith("/auth") 
+            || path.startsWith("/swagger-ui") 
+            || path.startsWith("/v3/api-docs");
     }
 
     @Override

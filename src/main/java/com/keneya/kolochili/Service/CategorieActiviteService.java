@@ -9,8 +9,11 @@ import com.keneya.kolochili.DTO.Request.CategorieActiviteDTORequest;
 import com.keneya.kolochili.DTO.Response.CategorieActiviteDTOResponse;
 import com.keneya.kolochili.Exception.ForbiddenException;
 import com.keneya.kolochili.IService.ICategorieActiviteService;
+import com.keneya.kolochili.MODEL.Admin;
 import com.keneya.kolochili.MODEL.CategorieActivite;
 import com.keneya.kolochili.Repository.CategorieActiviteRepository;
+import com.keneya.kolochili.Repository.AdminRepository;
+
 
 import lombok.RequiredArgsConstructor;
 
@@ -19,6 +22,8 @@ import lombok.RequiredArgsConstructor;
 public class CategorieActiviteService implements ICategorieActiviteService {
     
     private final CategorieActiviteRepository categorieRepository;
+    private final AdminRepository adminRepository;
+
 
     @Override
     public List<CategorieActiviteDTOResponse> getAllCategories() {
@@ -41,7 +46,13 @@ public class CategorieActiviteService implements ICategorieActiviteService {
         categorie.setLibelle(request.getLibelle());
         categorie.setDescription(request.getDescription());
         categorie.setArchive(false);
-        
+        /*Admin admin = adminRepository.findById(request.getIdAdmin())
+                .orElseThrow(() -> new ForbiddenException("Admin non trouvé"));
+        categorie.setAdmin(admin.getId());*/
+        Admin admin = adminRepository.findById(request.getIdAdmin())
+                .orElseThrow(() -> new ForbiddenException("Admin non trouvé"));
+        categorie.setAdmin(admin);
+
         CategorieActivite saved = categorieRepository.save(categorie);
         return mapToResponse(saved);
     }

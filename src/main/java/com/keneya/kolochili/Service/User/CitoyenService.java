@@ -64,7 +64,7 @@ public class CitoyenService {
         citoyen.setNom(entity.nom());
         citoyen.setPrenom(entity.prenom());
         citoyen.setEmail(entity.email());
-        citoyen.setPhone(entity.telephone());
+        citoyen.setTelephone(entity.telephone());
         citoyen.setMdp(entity.password());
         citoyen.setDate_naissance(entity.date_naissance());
         citoyenRepository.save(citoyen);

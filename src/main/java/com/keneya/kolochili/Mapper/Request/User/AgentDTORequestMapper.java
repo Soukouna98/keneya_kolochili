@@ -18,7 +18,7 @@ public class AgentDTORequestMapper implements Function<AgentDTORequest, Agent>{
         agent.setPrenom(t.prenom());
         agent.setEmail(t.email());
         agent.setMdp(t.password());
-        agent.setPhone(t.telephone());
+        agent.setTelephone(t.telephone());
         agent.setSpecialite(t.specialite());
         return agent;
     }

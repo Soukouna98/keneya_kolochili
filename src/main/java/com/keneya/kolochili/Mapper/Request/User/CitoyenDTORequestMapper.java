@@ -18,7 +18,7 @@ public class CitoyenDTORequestMapper implements Function<CitoyenDTORequest, Cito
         citoyen.setPrenom(t.prenom());
         citoyen.setEmail(t.email());
         citoyen.setMdp(t.password());
-        citoyen.setPhone(t.telephone());
+        citoyen.setTelephone(t.telephone());
         citoyen.setDate_naissance(t.date_naissance());
         return citoyen;
     }

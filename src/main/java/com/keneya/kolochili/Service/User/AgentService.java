@@ -66,7 +66,7 @@ public class AgentService {
         agent.setNom(entity.nom());
         agent.setPrenom(entity.prenom());
         agent.setEmail(entity.email());
-        agent.setPhone(entity.telephone());
+        agent.setTelephone(entity.telephone());
         agent.setMdp(entity.password());
         agent.setSpecialite(entity.specialite());
         agentRepository.save(agent);

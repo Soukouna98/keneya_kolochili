@@ -41,8 +41,7 @@ public class Utilisateur {
     @Column(nullable = false, length = 50)
     protected String mdp;
     @Column(nullable = false, length = 12)
-    protected String phone;
-
+    protected String telephone;
     @CreationTimestamp
     @Column(nullable=false,name="date_creation")
     private LocalDateTime dateCreation;

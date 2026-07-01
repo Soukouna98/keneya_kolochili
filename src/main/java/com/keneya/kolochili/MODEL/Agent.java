@@ -25,5 +25,9 @@ public class Agent extends Utilisateur {
     //La relation inversée entre la pulication et l'agent
     @OneToMany(mappedBy = "agent",  fetch = FetchType.LAZY)
     private List<Publication> publications;
+
+    /*public void setTelephone(String telephone) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }*/
     
 }

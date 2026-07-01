@@ -51,7 +51,6 @@ public class ActivitesService implements IServiceActivite {
         Activites activite = requestMapper.apply(entity);
         activite.setAgent(agent);
         activite.setCategorieActivite(categorie);
-
         activitesRepository.save(activite);
     }
 
