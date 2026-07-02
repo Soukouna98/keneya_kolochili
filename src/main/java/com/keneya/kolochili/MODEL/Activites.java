@@ -44,6 +44,7 @@ public class Activites {
     @Column(nullable = false)
     private LocalDateTime date;
 
+
     @Column(nullable = false, length = 50)
     private String nom;
 
