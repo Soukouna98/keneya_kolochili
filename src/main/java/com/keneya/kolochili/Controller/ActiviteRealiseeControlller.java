@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.keneya.kolochili.DTO.Request.Activite.ActiviteRealiseeDTORequest;
+import com.keneya.kolochili.DTO.Request.ActiviteRealiseeDTORequest;
 import com.keneya.kolochili.DTO.Response.APIResponse;
-import com.keneya.kolochili.DTO.Response.Activite.ActiviteRealiseeDTOResponse;
+import com.keneya.kolochili.DTO.Response.ActiviteRealiseeDTOResponse;
 import com.keneya.kolochili.Service.ActiviteRealiseeService;
 
 import jakarta.validation.Valid;
