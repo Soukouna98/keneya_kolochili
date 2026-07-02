@@ -5,8 +5,7 @@ import java.util.List;
 import com.keneya.kolochili.DTO.Request.CategorieActiviteDTORequest;
 import com.keneya.kolochili.DTO.Response.CategorieActiviteDTOResponse;
 
-public interface ICategorieActiviteService extends IService<CategorieActiviteDTORequest, Long, CategorieActiviteDTOResponse> {
-    
+public interface ICategorieActiviteService{    
     List<CategorieActiviteDTOResponse> getAllCategories();
     
     CategorieActiviteDTOResponse getCategoryById(Long id);

@@ -9,6 +9,7 @@ public interface ICategorieConseilService {
     void creer(CategorieConseilDTORequest request);
     void modifier(CategorieConseilDTORequest request, Long id);
     void supprimer(Long id);
+    void desarchiver(Long id);
     CategorieConseilDTOResponse findById(Long id);
     List<CategorieConseilDTOResponse> getAll();
 }
