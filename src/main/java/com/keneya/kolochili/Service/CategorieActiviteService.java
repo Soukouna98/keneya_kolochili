@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.keneya.kolochili.Config.CurrentUserContext;
 import com.keneya.kolochili.DTO.Request.CategorieActiviteDTORequest;
 import com.keneya.kolochili.DTO.Response.CategorieActiviteDTOResponse;
+import com.keneya.kolochili.Enumeration.TypeRole;
 import com.keneya.kolochili.Exception.ForbiddenException;
 import com.keneya.kolochili.IService.ICategorieActiviteService;
 import com.keneya.kolochili.MODEL.Admin;
@@ -21,7 +22,7 @@ import lombok.RequiredArgsConstructor;
 @Service
 @RequiredArgsConstructor
 public class CategorieActiviteService implements ICategorieActiviteService {
-    
+
     private final CategorieActiviteRepository categorieRepository;
     private final AdminRepository adminRepository;
 
@@ -46,23 +47,34 @@ public class CategorieActiviteService implements ICategorieActiviteService {
         Admin admin = adminRepository.findById(user.getId())
                 .orElseThrow(() -> new ForbiddenException("Admin non trouvé"));
         CategorieActivite categorie = new CategorieActivite();
+        if (categorieRepository.findByLibelle(request.getLibelle()).isPresent()) {
+            throw new IllegalArgumentException("Nom existe deja dans la base de donnee");
+        }
         categorie.setLibelle(request.getLibelle());
         categorie.setDescription(request.getDescription());
         categorie.setAdmin(admin);
         categorie.setArchive(false);
-        
         CategorieActivite saved = categorieRepository.save(categorie);
         return mapToResponse(saved);
     }
 
     @Override
     public CategorieActiviteDTOResponse updateCategory(Long id, CategorieActiviteDTORequest request) {
+        Utilisateur user = CurrentUserContext.get();
+        if (TypeRole.ADMIN.equals(user.getRole().getName())) {
+            throw new ForbiddenException("Vous n'avez pas l'authorisation necessaire(ADMIN)");
+        }
         CategorieActivite categorie = categorieRepository.findById(id)
                 .orElseThrow(() -> new ForbiddenException("Catégorie non trouvée"));
-        
+
+        if (!request.getLibelle().equals(categorie.getLibelle())) {
+            if (categorieRepository.findByLibelle(request.getLibelle()).isPresent()) {
+                throw new IllegalArgumentException("Nom existe deja dans la base de donnee");
+            }
+        }
         categorie.setLibelle(request.getLibelle());
         categorie.setDescription(request.getDescription());
-        
+
         CategorieActivite updated = categorieRepository.save(categorie);
         return mapToResponse(updated);
     }
@@ -92,28 +104,4 @@ public class CategorieActiviteService implements ICategorieActiviteService {
                 .build();
     }
 
-    @Override
-    public void creer(CategorieActiviteDTORequest entity) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public void modifier(CategorieActiviteDTORequest entity, Long id) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public void supprimer(Long id) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public CategorieActiviteDTOResponse findById(Long id) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public List<CategorieActiviteDTOResponse> getAll() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
 }

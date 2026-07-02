@@ -24,7 +24,7 @@ import lombok.RequiredArgsConstructor;
 @RestController
 @RequestMapping(path = "categorie-activites", produces = "application/json")
 @RequiredArgsConstructor
-public class CategorieController {
+public class CategorieActiviteController {
 
     private final ICategorieActiviteService categorieService;
 
