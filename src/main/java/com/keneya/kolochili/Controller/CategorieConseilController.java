@@ -17,7 +17,6 @@ import com.keneya.kolochili.IService.ICategorieConseilService;
 public class CategorieConseilController {
 
     private final ICategorieConseilService service;
-
     @PostMapping(consumes = "application/json")
     @ResponseStatus(HttpStatus.CREATED)
     public void ajouter(@Valid @RequestBody CategorieConseilDTORequest request) {

@@ -1,30 +1,26 @@
 package com.keneya.kolochili.IService;
 
 import java.util.List;
-
- 
-
-import com.keneya.kolochili.DTO.PublicationDTO;
+import com.keneya.kolochili.DTO.Request.PublicationDTORequest;
+import com.keneya.kolochili.DTO.Response.PublicationDTOResponse;
 
  
 
 public interface IServicePublication {
    
-    //Ici c'est le DTO qui transfert les données au lieu de Model 
-    //Les mdethodes 
-    PublicationDTO create(PublicationDTO dto);
+   
+    void creer(PublicationDTORequest request);
 
-    PublicationDTO getById(Long id);
+    void modifier(PublicationDTORequest request, Long id);
 
-    List<PublicationDTO> getAll();
+    void supprimer(Long id);
 
-    PublicationDTO update(Long id, PublicationDTO dto);
+    PublicationDTOResponse findById(Long id);
 
-    void delete(Long id);
-    //Les informations de l'archive et desarche
-    PublicationDTO archiver(Long id);
-   // PublicationDTO desarchiver(Long id);
-    List<PublicationDTO> getArchives();
+    List<PublicationDTOResponse> getAll();
+
+    List<PublicationDTOResponse> getArchives();
+
 
      
 
