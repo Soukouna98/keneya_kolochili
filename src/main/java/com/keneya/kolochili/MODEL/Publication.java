@@ -42,6 +42,7 @@ public class Publication {
     private LocalDateTime dateCreation;
     @Column(nullable = false)
     private String sources;
-    @Column(nullable=false)
-    private boolean archive;
+    @Column(nullable=false )
+    private boolean archive = false;
 }
+

@@ -2,7 +2,6 @@ package com.keneya.kolochili.DTO.Request;
 
 import java.time.LocalDateTime;
 
-import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 
 public record PublicationDTORequest(
@@ -10,16 +9,15 @@ public record PublicationDTORequest(
         String nomMaladie,
         @NotBlank(message = "Les symptômes sont obligatoires")
         String symptome,
-        @Email(message = "Le conseil  est obligatoire")
+        @NotBlank(message = "Le conseil  est obligatoire")
         String conseilPreventif,
         @NotBlank(message = "La source est obligatoire")
         String source,
         Boolean archive,
-        LocalDateTime dateCreation) 
+        LocalDateTime dateCreation
+    ) 
+    
         {
 
-    public void setNomMaladie(String nomMaladie2) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'setNomMaladie'");
-    }
+     
 }
