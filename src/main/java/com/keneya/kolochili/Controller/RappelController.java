@@ -1,7 +1,13 @@
 package com.keneya.kolochili.Controller;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
+import com.keneya.kolochili.DTO.Request.RappelDTO;
+import com.keneya.kolochili.DTO.Response.APIResponse;
+import com.keneya.kolochili.DTO.Response.RappelResponseDTO;
+import jakarta.validation.Valid;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,26 +34,43 @@ public class RappelController {
 private final RappelService rappelService ;
 
         @PostMapping("/create")
-        public Rappel create(@RequestBody Rappel rappel) {
-            return rappelService.creeRappel(rappel); 
+        public ResponseEntity<Rappel> create(@Valid @RequestBody RappelDTO r) {
+            Rappel rappel = rappelService.creeRappel(r);
+            return ResponseEntity.ok(rappel);
         }
+
+        @GetMapping("/dus")
+        public ResponseEntity<List<RappelResponseDTO>>rappelsDus(){
+            List<Rappel> rappelsDus = rappelService.getRappelsDus();
+            List<RappelResponseDTO> dus = rappelsDus.stream().map(RappelResponseDTO::new).toList();
+            return  ResponseEntity.ok(dus);
+
+        }
+
+
+    @GetMapping("/rappel-actif")
+    public ResponseEntity<List<RappelResponseDTO>>rappelsActif(){
+        List<Rappel> rappelsactifs = rappelService.getRappelsActifs();
+        List<RappelResponseDTO> actif = rappelsactifs.stream().map(RappelResponseDTO::new).toList();
+        return  ResponseEntity.ok(actif);
+    }
+
         
         @GetMapping("/read")
-        public List<Rappel> read() {
-            return rappelService.read();
+        public ResponseEntity<List<RappelResponseDTO>> allRappels() {
+            List<Rappel> allrappels = rappelService.read();
+            List<RappelResponseDTO> rappelTous = allrappels.stream().map(RappelResponseDTO::new).toList() ;
+            return ResponseEntity.ok(rappelTous) ;
         }
+//
 
-         @GetMapping("/myrappel")
-        public List<Rappel> allmyrappels() {
-            return rappelService.ListeRappelActiveById();
-        }
-        @PutMapping("/update/{id}")
-        public Rappel update (@PathVariable Long id, @RequestBody Rappel rappel) {
-            
-            return rappelService.updateRappel(id, rappel);
-
-        }
-
+//        @PutMapping("/update/{id}")
+//        public Rappel update (@PathVariable Long id, @RequestBody Rappel rappel) {
+//
+//            return rappelService.updateRappel(id, rappel);
+//
+//        }
+//
         @DeleteMapping("/delete/{id}")
         public String delete (@PathVariable Long id){
             return rappelService.deleteRappel(id);

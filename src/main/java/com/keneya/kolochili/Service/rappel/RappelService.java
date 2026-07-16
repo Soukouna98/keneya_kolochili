@@ -3,6 +3,7 @@ package com.keneya.kolochili.Service.rappel;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import com.keneya.kolochili.Enumeration.TypeFrequence;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
@@ -12,21 +13,33 @@ import com.keneya.kolochili.MODEL.Rappel;
 import com.keneya.kolochili.MODEL.Utilisateur;
 import com.keneya.kolochili.Repository.CitoyenRepository;
 import com.keneya.kolochili.Repository.RappelRepository;
+import com.keneya.kolochili.DTO.Request.RappelDTO;
 
 import lombok.AllArgsConstructor;
 
 @Service
 @AllArgsConstructor
-public class RappelService implements Irappel {
+public class RappelService  implements Irappel {
 
     private final RappelRepository rappelRepository;
     private final CitoyenRepository citoyenRepository;
     
     @Override
-    public Rappel creeRappel(Rappel rappel) {
+    public Rappel creeRappel(RappelDTO rappel) {
         Utilisateur user = CurrentUserContext.get();
-        rappel.setCitoyen(citoyenRepository.findById(user.getId()).get());
-        return rappelRepository.save(rappel);
+
+		Rappel r = new Rappel();
+        r.setCitoyen(citoyenRepository.findById(user.getId()).get());
+        r.setNom_medicament(rappel.getNom_medicament());
+        r.setFrequence(rappel.getFrequence());
+        r.setIntervalle(rappel.getIntervalle());
+        r.setDateCreation(LocalDateTime.now());
+        r.setDateDebut(rappel.getDateDebut());
+        r.setDateFin(rappel.getDateFin());
+        r.setDateRappel(rappel.getDateDebut());
+        r.setArchive(false);
+
+        return rappelRepository.save(r);
     }
 
     @Override
@@ -79,6 +92,38 @@ public Rappel updateRappel(Long id, Rappel rappel) {
     }
     }
         
+	@Override 
+	public 	List<Rappel> getRappelsDus(){
+        LocalDateTime now = LocalDateTime.now();
+        Utilisateur user = CurrentUserContext.get();
+        List<Rappel> rappelDus = rappelRepository.findRappelDusParCitoyen(user.getId(), now);
+
+        for (Rappel r : rappelDus){
+            System.out.println("AVANT : " + r.getDateRappel());
+            avanceEcheance(r);
+            System.out.println("APRÈS : " + r.getDateRappel());
+        }
+        rappelRepository.saveAll(rappelDus);
+        return  rappelDus;
+	}
+	@Override 
+	public 	List<Rappel> getRappelsActifs(){
+        Utilisateur user = CurrentUserContext.get();
+		return rappelRepository.findRappelActiveByCitoyen(user.getId());
+	}
+
+    private void avanceEcheance(Rappel r){
+            if(r.getFrequence() == TypeFrequence.FIXE){
+                LocalDateTime prochain = r.getDateRappel().plusHours(r.getIntervalle());
+                boolean depasseDateFin = r.getDateFin() != null && prochain.isAfter(r.getDateFin());
+                if(depasseDateFin){
+                    r.setArchive(true);
+                }
+                r.setDateRappel(prochain);
+            }else {
+                r.setArchive(true);
+            }
+    }
     
 
 
