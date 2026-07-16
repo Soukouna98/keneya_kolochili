@@ -21,8 +21,22 @@ public class SessionAuthenticationFilter extends OncePerRequestFilter {
 
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) {
-        String path = request.getServletPath();
-        return path.startsWith("/auth");
+        if ("OPTIONS".equalsIgnoreCase(request.getMethod())) {
+            return true;
+        }
+
+        String path = request.getRequestURI();
+        String method = request.getMethod();
+
+        if ("POST".equalsIgnoreCase(method) && ("/citoyens".equals(path) || "/citoyens/".equals(path))) {
+            return true;
+        }
+
+        return path.startsWith("/auth")
+                || path.startsWith("/swagger-ui")
+                || path.startsWith("/v3/api-docs")
+                || path.startsWith("/swagger-resources")
+                || path.startsWith("/webjars");
     }
 
     @Override
@@ -34,8 +48,7 @@ public class SessionAuthenticationFilter extends OncePerRequestFilter {
 
         try {
 
-            HttpSession session
-                    = request.getSession(false);
+            HttpSession session = request.getSession(false);
 
             if (session == null) {
                 throw new UnauthorizedException("Session introuvable");

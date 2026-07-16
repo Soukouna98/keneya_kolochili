@@ -2,6 +2,7 @@ package com.keneya.kolochili.Controller;
 
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,6 +21,7 @@ import lombok.RequiredArgsConstructor;
 @RestController
 @RequestMapping(path = "auth", produces = "application/json")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "http://localhost:4200", allowCredentials = "true")
 public class AuthController {
 
     private final IServiceUser userService;
@@ -32,7 +34,7 @@ public class AuthController {
                 new APIResponse<>(
                         true,
                         "Login successful",
-                        null)
+                        user.getRole().getName())
         );
     }
 

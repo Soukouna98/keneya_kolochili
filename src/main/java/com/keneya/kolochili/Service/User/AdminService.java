@@ -19,7 +19,7 @@ import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
-public class AdminService {
+public class AdminService  {
 
     private final IServiceUser userService;
     private final AdminRepository adminRepository;
