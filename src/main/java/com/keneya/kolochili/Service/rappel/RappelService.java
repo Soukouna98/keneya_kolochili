@@ -114,7 +114,7 @@ public Rappel updateRappel(Long id, Rappel rappel) {
 
     private void avanceEcheance(Rappel r){
             if(r.getFrequence() == TypeFrequence.FIXE){
-                LocalDateTime prochain = r.getDateRappel().plusHours(r.getIntervalle());
+                LocalDateTime prochain = r.getDateRappel().plusMinutes(r.getIntervalle());
                 boolean depasseDateFin = r.getDateFin() != null && prochain.isAfter(r.getDateFin());
                 if(depasseDateFin){
                     r.setArchive(true);

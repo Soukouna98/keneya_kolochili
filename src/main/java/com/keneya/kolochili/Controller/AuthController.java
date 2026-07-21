@@ -1,6 +1,9 @@
 package com.keneya.kolochili.Controller;
 
 
+import com.keneya.kolochili.Config.CurrentUserContext;
+import com.keneya.kolochili.DTO.Response.User.UserDTOResponse;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,15 +30,16 @@ public class AuthController {
     private final IServiceUser userService;
 
     @PostMapping(path = "/login", consumes = "application/json")
-    public ResponseEntity<APIResponse<Object>> login(@Valid @RequestBody LoginDTOResquest loginRequest, HttpSession session) {
+    public ResponseEntity<APIResponse<UserDTOResponse>> login(@Valid @RequestBody LoginDTOResquest loginRequest, HttpSession session) {
         Utilisateur user = userService.login(loginRequest);
         session.setAttribute("user", user);
         return ResponseEntity.ok(
                 new APIResponse<>(
                         true,
                         "Login successful",
-                        user.getRole().getName())
+                        UserDTOResponse.fromEntity(user))
         );
+
     }
 
     @GetMapping(path = "/logout")
@@ -56,5 +60,19 @@ public class AuthController {
                         "Personne n'est connecte ",
                         null)
         );
+    }
+
+    @GetMapping("/me")
+    public ResponseEntity<APIResponse<UserDTOResponse>> getMe( HttpSession session) {
+        Utilisateur user    = (Utilisateur) session.getAttribute("user");
+
+        if(user == null) {
+            return  ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        }
+        return ResponseEntity.ok(
+                new APIResponse<>(
+                true,
+                "Tout le monde est connecter",
+                UserDTOResponse.fromEntity(user)));
     }
 }

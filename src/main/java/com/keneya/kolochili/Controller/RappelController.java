@@ -34,9 +34,10 @@ public class RappelController {
 private final RappelService rappelService ;
 
         @PostMapping("/create")
-        public ResponseEntity<Rappel> create(@Valid @RequestBody RappelDTO r) {
+        public ResponseEntity<RappelResponseDTO> create(@Valid @RequestBody RappelDTO r) {
             Rappel rappel = rappelService.creeRappel(r);
-            return ResponseEntity.ok(rappel);
+            RappelResponseDTO rappelResponseDTO = new RappelResponseDTO(rappel);
+            return ResponseEntity.ok(rappelResponseDTO);
         }
 
         @GetMapping("/dus")
