@@ -21,8 +21,21 @@ public class SessionAuthenticationFilter extends OncePerRequestFilter {
 
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) {
+
         String path = request.getServletPath();
         String method = request.getMethod();
+        
+         if ("OPTIONS".equalsIgnoreCase(request.getMethod())) {
+            return true;
+        }   
+
+        if (path.startsWith("/activites")) {
+            return true;
+        }
+
+        if (path.startsWith("/api/plans")) {
+            return true;
+        }
 
         if ("POST".equalsIgnoreCase(method) && "/citoyens".equals(path)) {
             return true;
