@@ -1,4 +1,4 @@
-package com.keneya.kolochili.controller;
+package com.keneya.kolochili.Controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

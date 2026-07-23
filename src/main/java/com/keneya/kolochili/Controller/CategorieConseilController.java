@@ -12,12 +12,11 @@ import com.keneya.kolochili.DTO.Response.CategorieConseilDTOResponse;
 import com.keneya.kolochili.IService.ICategorieConseilService;
 
 @RestController
-@RequestMapping(path = "api/categories-conseils", produces = "application/json")
+@RequestMapping(path = "categories-conseils", produces = "application/json")
 @RequiredArgsConstructor
 public class CategorieConseilController {
 
     private final ICategorieConseilService service;
-
     @PostMapping(consumes = "application/json")
     @ResponseStatus(HttpStatus.CREATED)
     public void ajouter(@Valid @RequestBody CategorieConseilDTORequest request) {
@@ -33,6 +32,12 @@ public class CategorieConseilController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void supprimer(@PathVariable Long id) {
         service.supprimer(id);
+    }
+
+    @PatchMapping("/{id}/de-archiver")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void desarchiver(@PathVariable Long id) {
+        service.desarchiver(id);
     }
 
     @GetMapping("/{id}")

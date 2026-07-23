@@ -1,14 +1,21 @@
 package com.keneya.kolochili.Service;
 
 import java.util.List;
+import java.util.function.Function;
 
 import org.springframework.stereotype.Service;
 
-import com.keneya.kolochili.DTO.PublicationDTO;
+import com.keneya.kolochili.Config.CurrentUserContext;
+ 
+import com.keneya.kolochili.DTO.Request.PublicationDTORequest;
+import com.keneya.kolochili.DTO.Response.PublicationDTOResponse;
 import com.keneya.kolochili.IService.IServicePublication;
+
 import com.keneya.kolochili.MODEL.Agent;
+ 
 import com.keneya.kolochili.MODEL.Publication;
-import com.keneya.kolochili.Mapper.PublicationMapper;
+import com.keneya.kolochili.MODEL.Utilisateur;
+
 import com.keneya.kolochili.Repository.AgentRepository;
 import com.keneya.kolochili.Repository.PublicationRepository;
 
@@ -18,101 +25,77 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class PublicationServiceImpl implements IServicePublication {
 
-    private final PublicationRepository publicationRepository;
+    private final PublicationRepository repository;
     private final AgentRepository agentRepository;
-    private final PublicationMapper mapper;
+
+    private final Function<PublicationDTORequest, Publication> requestMapper;
+    private final Function<Publication, PublicationDTOResponse> responseMapper;
 
     @Override
-    public PublicationDTO create(PublicationDTO dto) {
+    public void creer(PublicationDTORequest request) {
 
-        Agent agent = agentRepository.findById(dto.getAgentId())
-                .orElseThrow(() -> new RuntimeException("Publication introuvable"));
+       Utilisateur user = CurrentUserContext.get();
+                Agent agent = agentRepository.findById(user.getId())
+                                .orElseThrow(() -> new EntityNotFoundException("L'agent introuvable"));
+                Publication publication = new Publication();
 
-        Publication p = mapper.toEntity(dto); // ici on appelé le Mappeur 
+        Publication p = requestMapper.apply(request);
         p.setAgent(agent);
 
-        return mapper.toDTO(publicationRepository.save(p));
-    }
-     @Override
-      public PublicationDTO getById(Long id) {
-
-        Publication p = publicationRepository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException("Publication introuvable"));
-
-        return mapper.toDTO(p);
-    }
-
-   
-    
-    @Override
-     public List<PublicationDTO> getAll() {
-        // return publicationRepository.findAll()
-        //         .stream()
-        //         .map(mapper::toDTO)
-        //         .toList();
-         return publicationRepository.findByArchiveFalse()
-            .stream()
-            .map(mapper::toDTO)
-            .toList();
+        repository.save(p);
     }
 
     @Override
-     public PublicationDTO update(Long id, PublicationDTO dto) {
+    public void modifier(PublicationDTORequest request, Long id) {
 
-        Publication p = publicationRepository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException("Publication introuvable"));
+        Publication p = repository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Publication introuvable"));
 
-        p.setNomMaladie(dto.getNomMaladie());
-        p.setSymptome(dto.getSymptome());
-        p.setConseilPreventif(dto.getConseilPreventif());
-        p.setSources(dto.getSources());
-        p.setArchive(dto.isArchive());
+        p.setNomMaladie(request.nomMaladie());
+        p.setSymptome(request.symptome());
+        p.setConseilPreventif(request.conseilPreventif());
+        p.setSources(request.source());
 
-        return mapper.toDTO(publicationRepository.save(p));
+        repository.save(p);
     }
 
-     //Suppression de publication
-     public void delete(Long id) {
-        publicationRepository.deleteById(id);
-    }
-    //Partie archive
     @Override
-    public PublicationDTO archiver(Long id) {
+    public void supprimer(Long id) {
 
-    Publication publication = publicationRepository.findById(id)
-            .orElseThrow(() -> new EntityNotFoundException("Publication introuvable"));
+        Publication p = repository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Publication introuvable"));
 
-    publication.setArchive(true);
+        p.setArchive(true);
 
-    Publication saved = publicationRepository.save(publication);
+        repository.save(p);
+    }
 
-    return mapper.toDTO(saved);
+    @Override
+    public PublicationDTOResponse findById(Long id) {
+
+        return repository.findById(id)
+                .map(responseMapper)
+                .orElseThrow(() -> new RuntimeException("Publication introuvable"));
+    }
+
+    @Override
+    public List<PublicationDTOResponse> getAll() {
+
+        return repository.findByArchiveFalse()
+                .stream()
+                .map(responseMapper)
+                .toList();
+    }
+
+    @Override
+    public List<PublicationDTOResponse> getArchives() {
+
+        return repository.findByArchiveTrue()
+                .stream()
+                .map(responseMapper)
+                .toList();
+    }
 }
-
-//Partie desarchive
-@Override
-public PublicationDTO desarchiver(Long id) {
-
-    Publication publication = publicationRepository.findById(id)
-            .orElseThrow(() -> new EntityNotFoundException("Publication introuvable"));
-
-    publication.setArchive(false);
-
-    Publication saved = publicationRepository.save(publication);
-
-    return mapper.toDTO(saved);
-}
-// La methode pour recuperer les publications archivées
-public List<PublicationDTO> getArchives() {
-
-    return publicationRepository.findByArchiveTrue()
-            .stream()
-            .map(mapper::toDTO)
-            .toList();
-}
-
-     
-     
-}
+ 
 
  
