@@ -1,8 +1,5 @@
 package com.keneya.kolochili.Controller;
 
-
-import com.keneya.kolochili.Config.CurrentUserContext;
-import com.keneya.kolochili.DTO.Response.User.UserDTOResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -14,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.keneya.kolochili.DTO.Request.LoginDTOResquest;
 import com.keneya.kolochili.DTO.Response.APIResponse;
+import com.keneya.kolochili.DTO.Response.User.UserDTOResponse;
 import com.keneya.kolochili.IService.User.IServiceUser;
 import com.keneya.kolochili.MODEL.Utilisateur;
 
@@ -39,7 +37,6 @@ public class AuthController {
                         "Login successful",
                         UserDTOResponse.fromEntity(user))
         );
-
     }
 
     @GetMapping(path = "/logout")
@@ -63,16 +60,16 @@ public class AuthController {
     }
 
     @GetMapping("/me")
-    public ResponseEntity<APIResponse<UserDTOResponse>> getMe( HttpSession session) {
-        Utilisateur user    = (Utilisateur) session.getAttribute("user");
+    public ResponseEntity<APIResponse<UserDTOResponse>> getMe(HttpSession session) {
+        Utilisateur user = (Utilisateur) session.getAttribute("user");
 
-        if(user == null) {
-            return  ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        if (user == null) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         }
         return ResponseEntity.ok(
                 new APIResponse<>(
-                true,
-                "Tout le monde est connecter",
-                UserDTOResponse.fromEntity(user)));
+                        true,
+                        "Tout le monde est connecte",
+                        UserDTOResponse.fromEntity(user)));
     }
 }
