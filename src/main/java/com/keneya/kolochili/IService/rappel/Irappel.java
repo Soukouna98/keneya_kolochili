@@ -13,8 +13,9 @@ public interface Irappel {
     String deleteRappel(Long id);
     List<Rappel> ListeRappelActiveById();
     void verifierRappels();
-	List<Rappel> getRappelsDus();
 	List<Rappel> getRappelsActifs();
+    List<Rappel> getRappelsTerminer();
+    void  TraiterTousRappelsDus();
 
 	
 

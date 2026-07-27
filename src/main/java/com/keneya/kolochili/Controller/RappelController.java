@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 import com.keneya.kolochili.DTO.Request.RappelDTO;
 import com.keneya.kolochili.DTO.Response.APIResponse;
 import com.keneya.kolochili.DTO.Response.RappelResponseDTO;
+import com.keneya.kolochili.MODEL.Notification;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -36,23 +37,23 @@ private final RappelService rappelService ;
         @PostMapping("/create")
         public ResponseEntity<RappelResponseDTO> create(@Valid @RequestBody RappelDTO r) {
             Rappel rappel = rappelService.creeRappel(r);
-            RappelResponseDTO rappelResponseDTO = new RappelResponseDTO(rappel);
+            RappelResponseDTO rappelResponseDTO =  RappelResponseDTO.fromEntity(rappel);
             return ResponseEntity.ok(rappelResponseDTO);
         }
-
-        @GetMapping("/dus")
-        public ResponseEntity<List<RappelResponseDTO>>rappelsDus(){
-            List<Rappel> rappelsDus = rappelService.getRappelsDus();
-            List<RappelResponseDTO> dus = rappelsDus.stream().map(RappelResponseDTO::new).toList();
-            return  ResponseEntity.ok(dus);
-
-        }
+//
+//        @GetMapping("/dus")
+//        public ResponseEntity<List<Notification>>rappelsDus(){
+//            List<Rappel> rappelsDus = rappelService.getRappelsDus();
+//            List<RappelResponseDTO> dus = rappelsDus.stream().map(RappelResponseDTO::new).toList();
+//            return  ResponseEntity.ok(dus);
+//
+//        }
 
 
     @GetMapping("/rappel-actif")
     public ResponseEntity<List<RappelResponseDTO>>rappelsActif(){
         List<Rappel> rappelsactifs = rappelService.getRappelsActifs();
-        List<RappelResponseDTO> actif = rappelsactifs.stream().map(RappelResponseDTO::new).toList();
+        List<RappelResponseDTO> actif = rappelsactifs.stream().map(RappelResponseDTO::fromEntity).toList();
         return  ResponseEntity.ok(actif);
     }
 
@@ -60,7 +61,7 @@ private final RappelService rappelService ;
         @GetMapping("/read")
         public ResponseEntity<List<RappelResponseDTO>> allRappels() {
             List<Rappel> allrappels = rappelService.read();
-            List<RappelResponseDTO> rappelTous = allrappels.stream().map(RappelResponseDTO::new).toList() ;
+            List<RappelResponseDTO> rappelTous = allrappels.stream().map(RappelResponseDTO::fromEntity).toList() ;
             return ResponseEntity.ok(rappelTous) ;
         }
 //
@@ -78,6 +79,12 @@ private final RappelService rappelService ;
         }
 
 
+        @GetMapping("/rappels-terminer")
+    public ResponseEntity<List<RappelResponseDTO>> rappelsTerminer(){
+            List<Rappel> allrappelsTerminer = rappelService.getRappelsTerminer();
+            List<RappelResponseDTO> rappelsResponse = allrappelsTerminer.stream().map(RappelResponseDTO::fromEntity).toList();
+            return  ResponseEntity.ok((rappelsResponse));
+    }
         
 
 }

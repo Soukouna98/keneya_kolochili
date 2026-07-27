@@ -5,15 +5,7 @@ import java.time.LocalDateTime;
 
 import com.keneya.kolochili.Enumeration.TypeFrequence;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -43,7 +35,8 @@ public class Rappel{
 	@Enumerated(EnumType.STRING)
 	private TypeFrequence frequence;
 	private int intervalle;
-
+	@Column( nullable = false )
+	private boolean terminer ;
 	@ManyToOne
 	@JoinColumn(name = "id_citoyen", nullable = false)
 	private Citoyen citoyen;
