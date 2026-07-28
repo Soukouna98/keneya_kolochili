@@ -14,10 +14,17 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+<<<<<<< HEAD
+import com.keneya.kolochili.DTO.Request.Activite.ActiviteRealiseeDTORequest;
+import com.keneya.kolochili.DTO.Response.APIResponse;
+import com.keneya.kolochili.DTO.Response.Activite.ActiviteRealiseeDTOResponse;
+import com.keneya.kolochili.Service.Activite.ActiviteRealiseeService;
+=======
 import com.keneya.kolochili.DTO.Request.ActiviteRealiseeDTORequest;
 import com.keneya.kolochili.DTO.Response.APIResponse;
 import com.keneya.kolochili.DTO.Response.ActiviteRealiseeDTOResponse;
 import com.keneya.kolochili.Service.ActiviteRealiseeService;
+>>>>>>> 6c3c16974707d83f3bbb0246dbf7981eaea9b249
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

@@ -1,0 +1,38 @@
+From 27bf22462bf79a1d3b7e979948fe1dedecadfaf3 Mon Sep 17 00:00:00 2001
+From: Ibrahima Sissoko <sissokoibrahima.ml14@gmail.com>
+Date: Mon, 22 Jun 2026 15:20:49 +0000
+Subject: [PATCH 1/4] ajout du model audit
+
+---
+ .gitignore                                          | 3 ++-
+ src/main/java/com/keneya/kolochili/MODEL/Audit.java | 2 +-
+ 2 files changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/.gitignore b/.gitignore
+index afe1f5b..99919dd 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -32,4 +32,5 @@ build/
+ ### VS Code ### 
+ .vscode/
+ 
+-src/main/resources/application.properties
+\ No newline at end of file
++src/main/resources/application.properties
++src/main/resources/application.properties
+diff --git a/src/main/java/com/keneya/kolochili/MODEL/Audit.java b/src/main/java/com/keneya/kolochili/MODEL/Audit.java
+index ea7f4d8..236dc7d 100644
+--- a/src/main/java/com/keneya/kolochili/MODEL/Audit.java
++++ b/src/main/java/com/keneya/kolochili/MODEL/Audit.java
+@@ -36,7 +36,7 @@ public class Audit {
+ 
+     @Column(nullable = false)
+     private Integer entityId;
+-
++    
+     @Column(nullable = false, length = 255)
+     private String url;
+ 
+-- 
+2.53.0.windows.1
+
