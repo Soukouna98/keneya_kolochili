@@ -34,15 +34,22 @@ public class CitoyenService {
     private final CitoyenDTOResponseMappper citoyenDTOResponseMappper;
 
     public void creer(CitoyenDTORequest entity) {
+
+        System.out.println("INSCRIPTION CITOYEN EMAIL = " + entity.email());
+
         if (userService.findUserByEmail(entity.email()) != null) {
             throw new IllegalArgumentException("Email existe deja dans la base de donnee");
         }
+
         Optional<Role> role = roleRepository.findByName(TypeRole.CITOYEN);
+
         if (role.isEmpty()) {
             throw new IllegalArgumentException("Role n'existe pas dans la base de donnee");
         }
+
         Citoyen citoyen = citoyenDTORequestMapper.apply(entity);
         citoyen.setRole(role.get());
+
         citoyenRepository.save(citoyen);
     }
 
