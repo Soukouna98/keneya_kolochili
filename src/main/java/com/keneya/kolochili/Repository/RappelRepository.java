@@ -13,10 +13,13 @@ public interface RappelRepository extends JpaRepository <Rappel,Long> {
 
     List<Rappel> findByCitoyenIdAndArchiveFalseAndDateRappelLessThanEqual(Long citoyenId,  LocalDateTime now);
 
-	@Query("select r from Rappel r where r.citoyen.id = :citoyenId and r.archive = false and r.dateRappel <= :now")
-	List<Rappel> findRappelDusParCitoyen( @Param("citoyenId") Long citoyenId, @Param("now") LocalDateTime now);
 
+	@Query("select r from Rappel r where r.citoyen.id = :citoyenId and r.archive = false and r.terminer = false and r.dateFin >= :now   Order By r.dateRappel ASC")
+	List<Rappel> findRappelActiveByCitoyen(@Param("citoyenId") Long citoyenID, LocalDateTime now);
 
-	@Query("select r from Rappel r where r.citoyen.id = :citoyenId and r.archive = false Order By r.dateRappel ASC")
-	List<Rappel> findRappelActiveByCitoyen(@Param("citoyenId") Long citoyenID);
+	@Query("select r from Rappel r where r.citoyen.id = :citoyenId and r.archive = false and r.terminer = true Order By r.dateRappel ASC")
+	List<Rappel> findRappelTerminerCitoyen(@Param("citoyenId") Long citoyenID);
+
+	@Query("select r from Rappel r where  r.archive = false and r.terminer = false  and r.dateRappel <= :now" )
+	List<Rappel> TraiterRappelDus(LocalDateTime now);
 }

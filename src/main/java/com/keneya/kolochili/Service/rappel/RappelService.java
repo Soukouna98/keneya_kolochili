@@ -4,6 +4,9 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import com.keneya.kolochili.Enumeration.TypeFrequence;
+import com.keneya.kolochili.MODEL.Notification;
+import com.keneya.kolochili.Repository.NotificationRepository;
+import jdk.jshell.execution.Util;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
@@ -23,7 +26,8 @@ public class RappelService  implements Irappel {
 
     private final RappelRepository rappelRepository;
     private final CitoyenRepository citoyenRepository;
-    
+    private final NotificationRepository notificationRepository;
+
     @Override
     public Rappel creeRappel(RappelDTO rappel) {
         Utilisateur user = CurrentUserContext.get();
@@ -38,6 +42,7 @@ public class RappelService  implements Irappel {
         r.setDateFin(rappel.getDateFin());
         r.setDateRappel(rappel.getDateDebut());
         r.setArchive(false);
+        r.setTerminer(false);
 
         return rappelRepository.save(r);
     }
@@ -63,8 +68,8 @@ public Rappel updateRappel(Long id, Rappel rappel) {
         })
         .orElseThrow(() -> new RuntimeException("rappel pas trouvé"));
 }
-    @Override
-    public String deleteRappel(Long id) {
+@Override
+public String deleteRappel(Long id) {
            rappelRepository.findById(id)
         .map(p -> {
             p.setArchive(true);
@@ -92,39 +97,59 @@ public Rappel updateRappel(Long id, Rappel rappel) {
     }
     }
         
-	@Override 
-	public 	List<Rappel> getRappelsDus(){
-        LocalDateTime now = LocalDateTime.now();
-        Utilisateur user = CurrentUserContext.get();
-        List<Rappel> rappelDus = rappelRepository.findRappelDusParCitoyen(user.getId(), now);
+//	@Override
+//	public 	List<Rappel> getRappelsDus(){
+//        LocalDateTime now = LocalDateTime.now();
+//        Utilisateur user = CurrentUserContext.get();
+//        List<Rappel> rappelDus = rappelRepository.findRappelDusParCitoyen(user.getId(), now);
+//        return  rappelDus;
+//	}
 
-        for (Rappel r : rappelDus){
-            System.out.println("AVANT : " + r.getDateRappel());
-            avanceEcheance(r);
-            System.out.println("APRÈS : " + r.getDateRappel());
-        }
-        rappelRepository.saveAll(rappelDus);
-        return  rappelDus;
-	}
+
 	@Override 
 	public 	List<Rappel> getRappelsActifs(){
         Utilisateur user = CurrentUserContext.get();
-		return rappelRepository.findRappelActiveByCitoyen(user.getId());
+		return rappelRepository.findRappelActiveByCitoyen(user.getId(), LocalDateTime.now());
 	}
+
+    @Override
+    public List<Rappel> getRappelsTerminer() {
+        Utilisateur user = CurrentUserContext.get();
+        return rappelRepository.findRappelTerminerCitoyen(user.getId());
+    }
+
+    @Override
+    public void TraiterTousRappelsDus() {
+        Utilisateur user = CurrentUserContext.get();
+        LocalDateTime now = LocalDateTime.now();
+        List<Rappel> rappelDus = rappelRepository.TraiterRappelDus(now);
+
+        for (Rappel r : rappelDus){
+            Notification notif = new Notification();
+            notif.setRappel(r);
+            notif.setCitoyen(r.getCitoyen());
+            notif.setDateDeclenchement(r.getDateRappel());
+            notificationRepository.save(notif);
+
+            avanceEcheance(r);
+        }
+        rappelRepository.saveAll(rappelDus);
+    }
+
 
     private void avanceEcheance(Rappel r){
             if(r.getFrequence() == TypeFrequence.FIXE){
-                LocalDateTime prochain = r.getDateRappel().plusMinutes(r.getIntervalle());
+                LocalDateTime prochain = r.getDateRappel().plusHours(r.getIntervalle());
                 boolean depasseDateFin = r.getDateFin() != null && prochain.isAfter(r.getDateFin());
                 if(depasseDateFin){
-                    r.setArchive(true);
+                    r.setTerminer(true);
                 }
                 r.setDateRappel(prochain);
             }else {
                 r.setArchive(true);
             }
     }
-    
+
 
 
 }
