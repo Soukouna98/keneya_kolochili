@@ -1,6 +1,5 @@
 package com.keneya.kolochili.Controller;
 
-
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
@@ -16,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.keneya.kolochili.DTO.Request.CitoyenActivitePlanDTORequest;
+import com.keneya.kolochili.DTO.Response.APIResponse;
 import com.keneya.kolochili.DTO.Response.CitoyenActivitePlanDTOResponse;
 import com.keneya.kolochili.IService.ICitoyenActivitePlanService;
 
@@ -31,49 +31,77 @@ public class CitoyenActivitePlanController {
     private final ICitoyenActivitePlanService service;
 
     @PostMapping
-    public ResponseEntity<CitoyenActivitePlanDTOResponse>
-    create(
-            @Valid
-            @RequestBody
-            CitoyenActivitePlanDTORequest dto) {
+    public ResponseEntity<APIResponse<CitoyenActivitePlanDTOResponse>> create(
+            @Valid @RequestBody CitoyenActivitePlanDTORequest dto) {
 
-        return ResponseEntity
-                .status(HttpStatus.CREATED)
-                .body(service.create(dto));
-    }
+        CitoyenActivitePlanDTOResponse response = service.create(dto);
 
-    @GetMapping("/{id}")
-    public ResponseEntity<CitoyenActivitePlanDTOResponse>
-    getById(@PathVariable Long id) {
-
-        return ResponseEntity.ok(
-                service.getById(id));
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(new APIResponse<>(
+                        true,
+                        "Plan créé avec succès",
+                        response
+                ));
     }
 
     @GetMapping
-    public ResponseEntity<List<CitoyenActivitePlanDTOResponse>>
-    getAll() {
+    public ResponseEntity<APIResponse<List<CitoyenActivitePlanDTOResponse>>> getAll() {
+
+        List<CitoyenActivitePlanDTOResponse> response = service.getAll();
 
         return ResponseEntity.ok(
-                service.getAll());
+                new APIResponse<>(
+                        true,
+                        "Liste des plans",
+                        response
+                )
+        );
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void>
-    delete(@PathVariable Long id) {
+    @GetMapping("/{id}")
+    public ResponseEntity<APIResponse<CitoyenActivitePlanDTOResponse>> getById(
+            @PathVariable Long id) {
 
-        service.delete(id);
+        CitoyenActivitePlanDTOResponse response = service.getById(id);
 
-        return ResponseEntity
-                .noContent()
-                .build();
+        return ResponseEntity.ok(
+                new APIResponse<>(
+                        true,
+                        "Plan trouvé",
+                        response
+                )
+        );
     }
+
     @PutMapping("/{id}")
-        public ResponseEntity<CitoyenActivitePlanDTOResponse> update(
+    public ResponseEntity<APIResponse<CitoyenActivitePlanDTOResponse>> update(
             @PathVariable Long id,
             @Valid @RequestBody CitoyenActivitePlanDTORequest dto) {
 
+        CitoyenActivitePlanDTOResponse response = service.update(id, dto);
+
         return ResponseEntity.ok(
-                service.update(id, dto));
+                new APIResponse<>(
+                        true,
+                        "Plan modifié avec succès",
+                        response
+                )
+        );
     }
-} 
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<APIResponse<Object>> delete(
+            @PathVariable Long id) {
+
+        service.delete(id);
+
+        return ResponseEntity.ok(
+                new APIResponse<>(
+                        true,
+                        "Plan supprimé avec succès",
+                        null
+                )
+        );
+    }
+
+}
