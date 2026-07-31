@@ -17,10 +17,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-<<<<<<< HEAD
-=======
 
->>>>>>> 6c3c16974707d83f3bbb0246dbf7981eaea9b249
 @Getter
 @Setter
 @AllArgsConstructor

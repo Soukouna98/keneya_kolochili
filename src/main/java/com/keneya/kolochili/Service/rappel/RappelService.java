@@ -3,20 +3,19 @@ package com.keneya.kolochili.Service.rappel;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import com.keneya.kolochili.Enumeration.TypeFrequence;
-import com.keneya.kolochili.MODEL.Notification;
-import com.keneya.kolochili.Repository.NotificationRepository;
-import jdk.jshell.execution.Util;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import com.keneya.kolochili.Config.CurrentUserContext;
+import com.keneya.kolochili.DTO.Request.RappelDTO;
+import com.keneya.kolochili.Enumeration.TypeFrequence;
 import com.keneya.kolochili.IService.rappel.Irappel;
+import com.keneya.kolochili.MODEL.Notification;
 import com.keneya.kolochili.MODEL.Rappel;
 import com.keneya.kolochili.MODEL.Utilisateur;
 import com.keneya.kolochili.Repository.CitoyenRepository;
+import com.keneya.kolochili.Repository.NotificationRepository;
 import com.keneya.kolochili.Repository.RappelRepository;
-import com.keneya.kolochili.DTO.Request.RappelDTO;
 
 import lombok.AllArgsConstructor;
 
@@ -139,7 +138,7 @@ public String deleteRappel(Long id) {
 
     private void avanceEcheance(Rappel r){
             if(r.getFrequence() == TypeFrequence.FIXE){
-                LocalDateTime prochain = r.getDateRappel().plusHours(r.getIntervalle());
+                LocalDateTime prochain = r.getDateRappel().plusMinutes(r.getIntervalle());
                 boolean depasseDateFin = r.getDateFin() != null && prochain.isAfter(r.getDateFin());
                 if(depasseDateFin){
                     r.setTerminer(true);
