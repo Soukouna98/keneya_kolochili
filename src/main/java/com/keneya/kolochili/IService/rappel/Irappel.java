@@ -2,8 +2,8 @@ package com.keneya.kolochili.IService.rappel;
 
 import java.util.List;
 
-import com.keneya.kolochili.MODEL.Rappel;
 import com.keneya.kolochili.DTO.Request.RappelDTO;
+import com.keneya.kolochili.MODEL.Rappel;
 
 public interface Irappel {
 
@@ -12,7 +12,7 @@ public interface Irappel {
     Rappel   updateRappel(Long id, Rappel rappel);
     String deleteRappel(Long id);
     List<Rappel> ListeRappelActiveById();
-    void verifierRappels();
+    // void verifierRappels();
 	List<Rappel> getRappelsActifs();
     List<Rappel> getRappelsTerminer();
     void  TraiterTousRappelsDus();

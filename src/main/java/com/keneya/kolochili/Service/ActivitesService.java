@@ -45,7 +45,7 @@ public class ActivitesService implements IServiceActivite {
         Agent agent = agentRepository.findById(entity.idAgent())
                 .orElseThrow(() -> new EntityNotFoundException("Agent non trouvé"));
 
-        CategorieActivite categorie = categorieRepository.findById(entity.idCategorieActivite())
+        CategorieActivite categorie = categorieRepository.findById(entity.idCategorie())
                 .orElseThrow(() -> new EntityNotFoundException("Catégorie non trouvée"));
 
         Activites activite = requestMapper.apply(entity);
@@ -70,7 +70,7 @@ public class ActivitesService implements IServiceActivite {
         Agent agent = agentRepository.findById(entity.idAgent())
                 .orElseThrow(() -> new EntityNotFoundException("Agent non trouvé"));
 
-        CategorieActivite categorie = categorieRepository.findById(entity.idCategorieActivite())
+        CategorieActivite categorie = categorieRepository.findById(entity.idCategorie())
                 .orElseThrow(() -> new EntityNotFoundException("Catégorie non trouvée"));
 
         activite.setAgent(agent);

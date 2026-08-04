@@ -2,6 +2,7 @@ package com.keneya.kolochili.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
+
 import org.springframework.stereotype.Service;
 
 import com.keneya.kolochili.Config.CurrentUserContext;
@@ -9,6 +10,7 @@ import com.keneya.kolochili.DTO.Request.CategorieConseilDTORequest;
 import com.keneya.kolochili.DTO.Response.CategorieConseilDTOResponse;
 import com.keneya.kolochili.Enumeration.TypeRole;
 import com.keneya.kolochili.Exception.ForbiddenException;
+import com.keneya.kolochili.IService.ICategorieConseilService;
 import com.keneya.kolochili.MODEL.Admin;
 import com.keneya.kolochili.MODEL.CategorieConseil;
 import com.keneya.kolochili.MODEL.Utilisateur;
@@ -16,9 +18,6 @@ import com.keneya.kolochili.Repository.AdminRepository;
 import com.keneya.kolochili.Repository.CategorieConseilRepository;
 
 import jakarta.persistence.EntityNotFoundException;
-
-import com.keneya.kolochili.IService.ICategorieConseilService;
-
 import lombok.RequiredArgsConstructor;
 
 @Service
@@ -102,9 +101,16 @@ public class CategorieConseilService implements ICategorieConseilService {
         }
 
         @Override
-        public List<CategorieConseilDTOResponse> getAll() {
-                return repository.findByArchiveFalse().stream()
-                                .map(responseMapper)
-                                .collect(Collectors.toList());
-        }
+public List<CategorieConseilDTOResponse> getAll() {
+
+    System.out.println("Début getAll()");
+
+    List<CategorieConseil> categories = repository.findByArchiveFalse();
+
+    System.out.println("Nombre de catégories : " + categories.size());
+
+    return categories.stream()
+            .map(responseMapper)
+            .collect(Collectors.toList());
+}
 }

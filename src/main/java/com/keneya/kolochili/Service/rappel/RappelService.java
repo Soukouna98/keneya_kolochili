@@ -3,7 +3,6 @@ package com.keneya.kolochili.Service.rappel;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import com.keneya.kolochili.Config.CurrentUserContext;
@@ -86,23 +85,6 @@ public String deleteRappel(Long id) {
         return rappelRepository.findByCitoyenIdAndArchiveFalseAndDateRappelLessThanEqual(user.getId(), LocalDateTime.now());
     }
 
-    @Override
-    @Scheduled( fixedRate =  6000)
-    public void verifierRappels() {
-        Utilisateur user = CurrentUserContext.get();
-      List<Rappel> rappels =  rappelRepository.findByCitoyenIdAndArchiveFalseAndDateRappelLessThanEqual(user.getId(), LocalDateTime.now());
-        for (Rappel rappel : rappels) {
-        System.out.println("C'est l'heure de prendre " + rappel.getNom_medicament());
-    }
-    }
-        
-//	@Override
-//	public 	List<Rappel> getRappelsDus(){
-//        LocalDateTime now = LocalDateTime.now();
-//        Utilisateur user = CurrentUserContext.get();
-//        List<Rappel> rappelDus = rappelRepository.findRappelDusParCitoyen(user.getId(), now);
-//        return  rappelDus;
-//	}
 
 
 	@Override 
@@ -119,7 +101,6 @@ public String deleteRappel(Long id) {
 
     @Override
     public void TraiterTousRappelsDus() {
-        Utilisateur user = CurrentUserContext.get();
         LocalDateTime now = LocalDateTime.now();
         List<Rappel> rappelDus = rappelRepository.TraiterRappelDus(now);
 

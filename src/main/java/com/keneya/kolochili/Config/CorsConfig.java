@@ -1,35 +1,36 @@
 package com.keneya.kolochili.Config;
 
-import java.util.List;
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.Ordered;
+import org.springframework.core.annotation.Order;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
+
+import java.util.Arrays;
+import java.util.Collections;
 
 @Configuration
 public class CorsConfig {
 
     @Bean
+    @Order(Ordered.HIGHEST_PRECEDENCE) // S'exécute impérativement AVANT SessionAuthenticationFilter
     public CorsFilter corsFilter() {
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         CorsConfiguration config = new CorsConfiguration();
         
-        // Autorise uniquement votre application Angular
-        config.setAllowedOrigins(List.of("http://localhost:4200"));
+        // Autorise explicitement l'origine de votre Angular
+        config.setAllowedOrigins(Collections.singletonList("http://localhost:4200"));
         
-        // Autorise toutes les méthodes (GET, POST, OPTIONS, PUT, PATCH, DELETE)
-        config.setAllowedMethods(List.of("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
-        
-        // Autorise tous les en-têtes (Headers) requis
-        config.setAllowedHeaders(List.of("Authorization", "Content-Type", "Cache-Control", "X-Requested-With"));
-        
-        // Indispensable pour votre option Angular { withCredentials: true }
+        // Indispensable pour s'échanger les cookies de session
         config.setAllowCredentials(true);
-
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", config);
         
+        // Autorise tous les en-têtes et méthodes
+        config.setAllowedHeaders(Arrays.asList("Origin", "Content-Type", "Accept", "Authorization", "X-Requested-With"));
+        config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"));
+        
+        source.registerCorsConfiguration("/**", config);
         return new CorsFilter(source);
     }
 }
